@@ -20,6 +20,9 @@
 
 		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/xml"
 
+if you want to change the backend endpoint edit the property file (property chargingSystemBackendUrl keep the netty4-http in front) 
+		src/main/resources/application.properties
+
 
 #How to deploy on openshift
 
@@ -36,6 +39,7 @@ Edit the file service-balance.yml and change the following variables according t
 		MAVEN_MIRROR_URL : url to your maven repo (ie nexus)
 
 Login in to developer account import the template for this project
+Change the configmaps/application.properties if needed to set the backend url
 	
 		oc login -u developer
 		oc create configmap --from-file=configmaps/application.properties service-balance-config
