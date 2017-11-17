@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.tibco.com/schemas/Vodafone/CSM/Egypt/Common.xsd"
+	targetNamespace="http://www.tibco.com/schemas/Vodafone/CSM/Egypt/Common.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns:Q1="http://www.tibco.com/schemas/Vodafone/CSM/Egypt/Common.xsd" xmlns:hd="http://group.vodafone.com/contract/vho/header/v1">
+	<xs:import schemaLocation="Header.xsd" namespace="http://group.vodafone.com/contract/vho/header/v1"></xs:import>
+	
+	<!-- Types  -->
+	<!-- Complex Types -->
+	<xs:complexType name="HeaderType">
+		<xs:sequence>
+			<xs:element ref="hd:Cache" minOccurs="0"/>
+			<xs:element ref="hd:Correlation" minOccurs="0"/>
+			<xs:element ref="hd:Destination" minOccurs="0"/>
+			<xs:element ref="hd:QueryResult" minOccurs="0"/>
+			<xs:element ref="hd:ResultStatus" minOccurs="0"/>
+			<xs:element ref="hd:RouteInfo" minOccurs="0"/>
+			<xs:element ref="hd:ServiceDocumentation" minOccurs="0"/>
+			<xs:element ref="hd:Source" minOccurs="0"/>
+			<xs:element name="timeout" type="xs:integer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+
+	<!-- Elemetns -->
+	<xs:element name="Header" type="HeaderType"/>
+
+		
+	
+</xs:schema>

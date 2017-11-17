@@ -1,0 +1,3147 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "urn::application/vnd.vodafone.service-balance.v1+json",
+	"title": "ServiceBalanceVBO",
+	"description": "The Service Balance service is an Entity service providing a capability to retrieve a balance information from the downstream systems. This balance information represent the available amount of a service",
+	"type": "object",
+	"properties": {
+		"_links": {
+			"$ref": "#/definitions/links"
+		},
+		"ids": {
+			"type": "array",
+			"description": "The set of Identifiers for the VBO or component. These should be used to uniquely identifier instances of the business object or component.",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"description": "The identifier of the business object or component. This should be used to identify instances of a business object or component. Where the component is being used to reference another business object then this is the primary key of the target object. Use the attributes @schemeName and @schemeAgencyName to identify type of Identifier.",
+				"properties": {
+					"$": {
+						"type": "string",
+						"description": "The value of the field."
+					},
+					"@scheme-id": {
+						"type": "string",
+						"description": " The identification of the identification scheme."
+					},
+					"@scheme-name": {
+						"type": "string",
+						"description": " The name of the identification scheme."
+					},
+					"@scheme-agency-id": {
+						"type": "string",
+						"description": " The identification of the agency that maintains the identification scheme."
+					},
+					"@scheme-agency-name": {
+						"type": "string",
+						"description": " The name of the agency that maintains the identification scheme."
+					},
+					"@scheme-version-id": {
+						"type": "string",
+						"description": " The version of the identification scheme."
+					},
+					"@scheme-data-uri": {
+						"type": "string",
+						"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+					},
+					"@scheme-uri": {
+						"type": "string",
+						"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+					}
+				},
+				"required": [
+					"$"
+				]
+			}
+		},
+		"name": {
+			"type": "object",
+			"description": " The name of the instance of a business object or component.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+				},
+				"@language-id": {
+					"type": "string",
+					"description": " The identifier of the language used in the content component."
+				},
+				"@language-locale-id": {
+					"type": "string",
+					"description": " The identification of the locale of the language."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"desc": {
+			"type": "object",
+			"description": " A free text description of a business object or component.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+				},
+				"@language-id": {
+					"type": "string",
+					"description": " The identifier of the language used in the content component."
+				},
+				"@language-locale-id": {
+					"type": "string",
+					"description": " The identification of the locale of the language."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"type": {
+			"type": "object",
+			"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value of the field."
+				},
+				"@list-id": {
+					"type": "string",
+					"description": " The identification of a list of codes."
+				},
+				"@list-agency-id": {
+					"type": "string",
+					"description": " An agency that maintains one or more lists of codes."
+				},
+				"@list-agency-name": {
+					"type": "string",
+					"description": " The name of the agency that maintains the list of codes."
+				},
+				"@list-name": {
+					"type": "string",
+					"description": " The name of a list of codes."
+				},
+				"@list-version-id": {
+					"type": "string",
+					"description": " The version of the list of codes."
+				},
+				"@name": {
+					"type": "string",
+					"description": " The textual equivalent of the code content component."
+				},
+				"@language-id": {
+					"type": "string",
+					"description": " The identifier of the language used in the content component."
+				},
+				"@list-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the code list is located."
+				},
+				"@list-scheme-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"categories": {
+			"type": "array",
+			"description": " The set of classifications for the business object or component.",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"description": " A classification applied to the business object or component. More than one classification scheme can be applied using the @listName attribute to identify the type of code list being used. The classification scheme can be used to group instances of the object or component.",
+				"properties": {
+					"$": {
+						"type": "string",
+						"description": "The value of the field."
+					},
+					"@list-hierarchy-id": {
+						"type": "string",
+						"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+					},
+					"@list-id": {
+						"type": "string",
+						"description": "The identification of a list of codes."
+					},
+					"@list-agency-id": {
+						"type": "string",
+						"description": "An agency that maintains one or more lists of codes."
+					},
+					"@list-agency-name": {
+						"type": "string",
+						"description": "The name of the agency that maintains the list of codes."
+					},
+					"@list-name": {
+						"type": "string",
+						"description": "The name of a list of codes."
+					},
+					"@list-version-id": {
+						"type": "string",
+						"description": "The version of the list of codes."
+					},
+					"@name": {
+						"type": "string",
+						"description": "The textual equivalent of the code content component."
+					},
+					"@language-id": {
+						"type": "string",
+						"description": "The identifier of the language used in the code name."
+					},
+					"@list-uri": {
+						"type": "string",
+						"description": "The Uniform Resource Identifier that identifies where the code list is located."
+					},
+					"@list-scheme-uri": {
+						"type": "string",
+						"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+					}
+				},
+				"required": [
+					"$"
+				]
+			}
+		},
+		"status": {
+			"type": "object",
+			"description": " The lifecycle state of the business object or component. This field is used to track the specific state an instance of an object or component is in, e.g. the Customer Bill is Active or the Customer Request has been Cancelled.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value of the field."
+				},
+				"@list-id": {
+					"type": "string",
+					"description": " The identification of a list of codes."
+				},
+				"@list-agency-id": {
+					"type": "string",
+					"description": " An agency that maintains one or more lists of codes."
+				},
+				"@list-agency-name": {
+					"type": "string",
+					"description": " The name of the agency that maintains the list of codes."
+				},
+				"@list-name": {
+					"type": "string",
+					"description": " The name of a list of codes."
+				},
+				"@list-version-id": {
+					"type": "string",
+					"description": " The version of the list of codes."
+				},
+				"@name": {
+					"type": "string",
+					"description": " The textual equivalent of the code content component."
+				},
+				"@language-id": {
+					"type": "string",
+					"description": " The identifier of the language used in the content component."
+				},
+				"@list-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the code list is located."
+				},
+				"@list-scheme-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"version": {
+			"type": "object",
+			"description": " A field that identifies the specific version of an instance of a business object or component. This field should be used in support of multi-agent environments to control the concurrency (locking) of the instance.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+				},
+				"@language-id": {
+					"type": "string",
+					"description": " The identifier of the language used in the content component."
+				},
+				"@language-locale-id": {
+					"type": "string",
+					"description": " The identification of the locale of the language."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"created": {
+			"type": "object",
+			"description": "The date and time the business object or component was created. A date and time formatted in compliance with the ISO8601 standard must be used.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "A particular point in the progression of time together with the relevant supplementary information."
+				},
+				"@format": {
+					"type": "string",
+					"description": "The format of the date time content."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"created-by": {
+			"type": "object",
+			"description": " The unique ID of the User that created the instance of the business object or component. This should be used as a reference to the IDM system and the details about that User.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value of the field."
+				},
+				"@scheme-id": {
+					"type": "string",
+					"description": " The identification of the identification scheme."
+				},
+				"@scheme-name": {
+					"type": "string",
+					"description": " The name of the identification scheme."
+				},
+				"@scheme-agency-id": {
+					"type": "string",
+					"description": " The identification of the agency that maintains the identification scheme."
+				},
+				"@scheme-agency-name": {
+					"type": "string",
+					"description": " The name of the agency that maintains the identification scheme."
+				},
+				"@scheme-version-id": {
+					"type": "string",
+					"description": " The version of the identification scheme."
+				},
+				"@scheme-data-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+				},
+				"@scheme-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"last-modified": {
+			"type": "object",
+			"description": "The date and time the business object or component was last modified. A date and time formatted in compliance with the ISO8601 standard must be used.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "A particular point in the progression of time together with the relevant supplementary information."
+				},
+				"@format": {
+					"type": "string",
+					"description": " The format of the date/time content."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"last-modified-by": {
+			"type": "object",
+			"description": " The unique ID of the User that last modified the instance of the business object or component. This should be used as a reference to the IDM system and the details about that User.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value of the field."
+				},
+				"@scheme-id": {
+					"type": "string",
+					"description": " The identification of the identification scheme."
+				},
+				"@scheme-name": {
+					"type": "string",
+					"description": " The name of the identification scheme."
+				},
+				"@scheme-agency-id": {
+					"type": "string",
+					"description": " The identification of the agency that maintains the identification scheme."
+				},
+				"@scheme-agency-name": {
+					"type": "string",
+					"description": " The name of the agency that maintains the identification scheme."
+				},
+				"@scheme-version-id": {
+					"type": "string",
+					"description": " The version of the identification scheme."
+				},
+				"@scheme-data-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+				},
+				"@scheme-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"validity-period": {
+			"type": "object",
+			"description": "A component that states the date and time from which this business object is effective (or valid) and the date and time to which it is effective. Again the ISO8601 standard must be used.",
+			"properties": {
+				"from-date": {
+					"type": "object",
+					"description": "The date from which the business object or component is effective.",
+					"properties": {
+						"date-string": {
+							"type": "object",
+							"description": "The date from which the business object or component is effective.",
+							"properties": {
+								"$": {
+									"type": "string",
+									"description": "The value of the field."
+								},
+								"@format": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"$"
+							]
+						},
+						"date": {
+							"type": "string",
+							"description": "The name of a list of codes. The listName of the Organisation Status Code"
+						}
+					},
+					"oneOf": [
+						{
+							"required": [
+								"date-string"
+							]
+						},
+						{
+							"required": [
+								"date"
+							]
+						}
+					]
+				},
+				"to-date": {
+					"type": "object",
+					"description": "The date to which the business object or component is effective.",
+					"properties": {
+						"date-string": {
+							"type": "object",
+							"description": "The date from which the business object or component is effective.",
+							"properties": {
+								"$": {
+									"type": "string",
+									"description": "The value of the field."
+								},
+								"@format": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"$"
+							]
+						},
+						"date": {
+							"type": "string",
+							"description": "The name of a list of codes. The listName of the Organisation Status Code"
+						}
+					},
+					"oneOf": [
+						{
+							"required": [
+								"date-string"
+							]
+						},
+						{
+							"required": [
+								"date"
+							]
+						}
+					]
+				}
+			}
+		},
+		"last-activity-date": {
+			"type": "object",
+			"description": "A field representing the date and time on which business activity was last made on this business object or component. The date and time must conform to the ISO8601 standard.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "A particular point in the progression of time together with the relevant supplementary information."
+				},
+				"@format": {
+					"type": "string",
+					"description": "The format of the date time content."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"service-identifier": {
+			"type": "object",
+			"description": "The identifier of the service.",
+			"properties": {
+				"$": {
+					"type": "string",
+					"description": "The value of the field."
+				},
+				"@scheme-id": {
+					"type": "string",
+					"description": " The identification of the identification scheme."
+				},
+				"@scheme-name": {
+					"type": "string",
+					"description": " The name of the identification scheme."
+				},
+				"@scheme-agency-id": {
+					"type": "string",
+					"description": " The identification of the agency that maintains the identification scheme."
+				},
+				"@scheme-agency-name": {
+					"type": "string",
+					"description": " The name of the agency that maintains the identification scheme."
+				},
+				"@scheme-version-id": {
+					"type": "string",
+					"description": " The version of the identification scheme."
+				},
+				"@scheme-data-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+				},
+				"@scheme-uri": {
+					"type": "string",
+					"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+				}
+			},
+			"required": [
+				"$"
+			]
+		},
+		"details": {
+			"type": "object",
+			"description": "Details fields of the Service Balance",
+			"properties": {
+				"amount": {
+					"type": "object",
+					"description": "Indicates monetary value of the remaining amount",
+					"properties": {
+						"$": {
+							"type": "number",
+							"description": "The value of the field."
+						},
+						"@currency-id": {
+							"type": "string",
+							"description": "The currency of the amount. The currencyID of the Adjustment Amount"
+						},
+						"@currency-codeList-version-id": {
+							"type": "string",
+							"description": "Amount Currency. Code List Version. Identifier"
+						}
+					},
+					"required": [
+						"$",
+						"@currency-id"
+					]
+				},
+				"allowance": {
+					"type": "array",
+					"description": "Indicates non-monetary value of the remaining and used allowance",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": "Indicates non-monetary value of the remaining and used allowance",
+						"properties": {
+							"type": {
+								"type": "object",
+								"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "The value of the field."
+									},
+									"@list-id": {
+										"type": "string",
+										"description": " The identification of a list of codes."
+									},
+									"@list-agency-id": {
+										"type": "string",
+										"description": " An agency that maintains one or more lists of codes."
+									},
+									"@list-agency-name": {
+										"type": "string",
+										"description": " The name of the agency that maintains the list of codes."
+									},
+									"@list-name": {
+										"type": "string",
+										"description": " The name of a list of codes."
+									},
+									"@list-version-id": {
+										"type": "string",
+										"description": " The version of the list of codes."
+									},
+									"@name": {
+										"type": "string",
+										"description": " The textual equivalent of the code content component."
+									},
+									"@language-id": {
+										"type": "string",
+										"description": " The identifier of the language used in the content component."
+									},
+									"@list-uri": {
+										"type": "string",
+										"description": " The Uniform Resource Identifier that identifies where the code list is located."
+									},
+									"@list-scheme-uri": {
+										"type": "string",
+										"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+									}
+								},
+								"required": [
+									"$"
+								]
+							},
+							"category": {
+								"type": "object",
+								"description": " The set of classifications for the business object or component.",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "The value of the field."
+									},
+									"@list-hierarchy-id": {
+										"type": "string",
+										"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+									},
+									"@list-id": {
+										"type": "string",
+										"description": "The identification of a list of codes."
+									},
+									"@list-agency-id": {
+										"type": "string",
+										"description": "An agency that maintains one or more lists of codes."
+									},
+									"@list-agency-name": {
+										"type": "string",
+										"description": "The name of the agency that maintains the list of codes."
+									},
+									"@list-name": {
+										"type": "string",
+										"description": "The name of a list of codes."
+									},
+									"@list-version-id": {
+										"type": "string",
+										"description": "The version of the list of codes."
+									},
+									"@name": {
+										"type": "string",
+										"description": "The textual equivalent of the code content component."
+									},
+									"@language-id": {
+										"type": "string",
+										"description": "The identifier of the language used in the code name."
+									},
+									"@list-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the code list is located."
+									},
+									"@list-scheme-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+									}
+								},
+								"required": [
+									"$"
+								]
+							},
+							"available-allowance": {
+								"type": "object",
+								"description": "Indicates non-monetary value of the remaining",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "A counted number of non-monetary units possibly including fractions."
+									},
+									"@unit-code": {
+										"type": "string",
+										"description": "The unit of the quantity."
+									},
+									"@unit-code-list-id": {
+										"type": "string",
+										"description": "The quantity unit code list."
+									},
+									"@unit-code-list-agency-id": {
+										"type": "string",
+										"description": "The identification of the agency that maintains the quantity unit code list."
+									},
+									"@unit-code-list-agency-name": {
+										"type": "string",
+										"description": "The name of the agency which maintains the quantity unit code list."
+									}
+								},
+								"required": [
+									"$",
+									"@unit-code"
+								]
+							},
+							"used-allowance": {
+								"type": "object",
+								"description": "Indicates non-monetary value of the used allowance",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "A counted number of non-monetary units possibly including fractions."
+									},
+									"@unit-code": {
+										"type": "string",
+										"description": "The unit of the quantity."
+									},
+									"@unit-code-list-id": {
+										"type": "string",
+										"description": "The quantity unit code list."
+									},
+									"@unit-code-list-agency-id": {
+										"type": "string",
+										"description": "The identification of the agency that maintains the quantity unit code list."
+									},
+									"@unit-code-list-agency-name": {
+										"type": "string",
+										"description": "The name of the agency which maintains the quantity unit code list."
+									}
+								},
+								"required": [
+									"$",
+									"@unit-code"
+								]
+							}
+						}
+					}
+				},
+				"balance-amount": {
+					"type": "array",
+					"description": "Indicates monetary value of the remaining amount",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": "Indicates monetary value of the remaining amount.",
+						"properties": {
+							"type": {
+								"type": "object",
+								"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "The value of the field."
+									},
+									"@list-id": {
+										"type": "string",
+										"description": " The identification of a list of codes."
+									},
+									"@list-agency-id": {
+										"type": "string",
+										"description": " An agency that maintains one or more lists of codes."
+									},
+									"@list-agency-name": {
+										"type": "string",
+										"description": " The name of the agency that maintains the list of codes."
+									},
+									"@list-name": {
+										"type": "string",
+										"description": " The name of a list of codes."
+									},
+									"@list-version-id": {
+										"type": "string",
+										"description": " The version of the list of codes."
+									},
+									"@name": {
+										"type": "string",
+										"description": " The textual equivalent of the code content component."
+									},
+									"@language-id": {
+										"type": "string",
+										"description": " The identifier of the language used in the content component."
+									},
+									"@list-uri": {
+										"type": "string",
+										"description": " The Uniform Resource Identifier that identifies where the code list is located."
+									},
+									"@list-scheme-uri": {
+										"type": "string",
+										"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+									}
+								},
+								"required": [
+									"$"
+								]
+							},
+							"category": {
+								"type": "object",
+								"description": " The set of classifications for the business object or component.",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "The value of the field."
+									},
+									"@list-hierarchy-id": {
+										"type": "string",
+										"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+									},
+									"@list-id": {
+										"type": "string",
+										"description": "The identification of a list of codes."
+									},
+									"@list-agency-id": {
+										"type": "string",
+										"description": "An agency that maintains one or more lists of codes."
+									},
+									"@list-agency-name": {
+										"type": "string",
+										"description": "The name of the agency that maintains the list of codes."
+									},
+									"@list-name": {
+										"type": "string",
+										"description": "The name of a list of codes."
+									},
+									"@list-version-id": {
+										"type": "string",
+										"description": "The version of the list of codes."
+									},
+									"@name": {
+										"type": "string",
+										"description": "The textual equivalent of the code content component."
+									},
+									"@language-id": {
+										"type": "string",
+										"description": "The identifier of the language used in the code name."
+									},
+									"@list-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the code list is located."
+									},
+									"@list-scheme-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+									}
+								},
+								"required": [
+									"$"
+								]
+							},
+							"amount": {
+								"type": "object",
+								"description": "Indicates monetary value of the remaining amount",
+								"properties": {
+									"$": {
+										"type": "number",
+										"description": "The value of the field."
+									},
+									"@currency-id": {
+										"type": "string",
+										"description": "The currency of the amount. The currencyID of the Adjustment Amount"
+									},
+									"@currency-codeList-version-id": {
+										"type": "string",
+										"description": "Amount Currency. Code List Version. Identifier"
+									}
+								},
+								"required": [
+									"$",
+									"@currency-id"
+								]
+							}
+						}
+					}
+				},
+				"last-payment-date": {
+					"type": "object",
+					"description": "The Date at which the last payment was done for a customer account.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "A particular point in the progression of time together with the relevant supplementary information."
+						},
+						"@format": {
+							"type": "string",
+							"description": " The format of the date/time content."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"reset-date": {
+					"type": "object",
+					"description": "Date Represents the date and time that the Bundle subscription count for the Bundle will be reset to zero.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "A particular point in the progression of time together with the relevant supplementary information."
+						},
+						"@format": {
+							"type": "string",
+							"description": " The format of the date/time content."
+						}
+					},
+					"required": [
+						"$"
+					]
+				}
+			},
+			"oneOf": [
+				{
+					"required": [
+						"amount"
+					]
+				},
+				{
+					"required": [
+						"allowance"
+					]
+				}
+			]
+		},
+		"related-service-balances": {
+			"type": "array",
+			"description": "The set of other service balances that are related to the current service balance.",
+			"minItems": 0,
+			"items": {
+				"$ref": "#/definitions/related-service-balance"
+			}
+		},
+		"roles": {
+			"type": "object",
+			"description": "The set of party roles associated with the Service Balance.",
+			"properties": {
+			}
+		},
+		"parts": {
+			"type": "object",
+			"description": "The set of components that define the information about a Service Balance.",
+			"properties": {
+				"customer-facing-service": {
+					"$ref": "#/definitions/customer-facing-service"
+				},
+				"customer-account": {
+					"$ref": "#/definitions/customer-account"
+				}
+			}
+		},
+		"related-parties": {
+			"type": "array",
+			"description": "The set of related parties associated with the Serviec Balance",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/related-party"
+			}
+		}
+	},
+	"definitions": {
+		"links": {
+			"type": "object",
+			"properties": {
+				"link": {
+					"$ref": "#/definitions/link"
+				}
+			},
+			"additionalProperties": {
+				"$ref": "#/definitions/link"
+			}
+		},
+		"link": {
+			"type": "object",
+			"properties": {
+				"href": {
+					"type": "string",
+					"format": "string"
+				}
+			},
+			"required": [
+				"href"
+			]
+		},
+		"related-service-balance": {
+			"type": "object",
+			"description": "Another document that is related to the current Service Balance; the relationship is formed through the Related ServiceBalance ID.",
+			"properties": {
+				"_links": {
+					"$ref": "#/definitions/links"
+				},
+				"ids": {
+					"type": "array",
+					"description": " The set of Identifiers for the VBO or component. These should be used to uniquely identifier instances of the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " The identifier of the business object or component. This should be used to identify instances of a business object or component. Where the component is being used to reference another business object then this is the primary key of the target object. Use the attributes @schemeName and @schemeAgencyName to identify type of Identifier.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@scheme-id": {
+								"type": "string",
+								"description": " The identification of the identification scheme."
+							},
+							"@scheme-name": {
+								"type": "string",
+								"description": " The name of the identification scheme."
+							},
+							"@scheme-agency-id": {
+								"type": "string",
+								"description": " The identification of the agency that maintains the identification scheme."
+							},
+							"@scheme-agency-name": {
+								"type": "string",
+								"description": " The name of the agency that maintains the identification scheme."
+							},
+							"@scheme-version-id": {
+								"type": "string",
+								"description": " The version of the identification scheme."
+							},
+							"@scheme-data-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+							},
+							"@scheme-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"name": {
+					"type": "object",
+					"description": " The name of the instance of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"desc": {
+					"type": "object",
+					"description": " A free text description of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"type": {
+					"type": "object",
+					"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"categories": {
+					"type": "array",
+					"description": " The set of classifications for the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " A classification applied to the business object or component. More than one classification scheme can be applied using the @listName attribute to identify the type of code list being used. The classification scheme can be used to group instances of the object or component.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@list-hierarchy-id": {
+								"type": "string",
+								"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+							},
+							"@list-id": {
+								"type": "string",
+								"description": "The identification of a list of codes."
+							},
+							"@list-agency-id": {
+								"type": "string",
+								"description": "An agency that maintains one or more lists of codes."
+							},
+							"@list-agency-name": {
+								"type": "string",
+								"description": "The name of the agency that maintains the list of codes."
+							},
+							"@list-name": {
+								"type": "string",
+								"description": "The name of a list of codes."
+							},
+							"@list-version-id": {
+								"type": "string",
+								"description": "The version of the list of codes."
+							},
+							"@name": {
+								"type": "string",
+								"description": "The textual equivalent of the code content component."
+							},
+							"@language-id": {
+								"type": "string",
+								"description": "The identifier of the language used in the code name."
+							},
+							"@list-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list is located."
+							},
+							"@list-scheme-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"status": {
+					"type": "object",
+					"description": " The lifecycle state of the business object or component. This field is used to track the specific state an instance of an object or component is in, e.g. the Customer Bill is Active or the Customer Request has been Cancelled.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				}
+			}
+		},
+		"customer-facing-service": {
+			"type": "object",
+			"description": "A Customer Facing Service defines the properties of a particular related Service that represents a realisation of a Product.",
+			"properties": {
+				"_links": {
+					"$ref": "#/definitions/links"
+				},
+				"ids": {
+					"type": "array",
+					"description": " The set of Identifiers for the VBO or component. These should be used to uniquely identifier instances of the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " The identifier of the business object or component. This should be used to identify instances of a business object or component. Where the component is being used to reference another business object then this is the primary key of the target object. Use the attributes @schemeName and @schemeAgencyName to identify type of Identifier.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@scheme-id": {
+								"type": "string",
+								"description": " The identification of the identification scheme."
+							},
+							"@scheme-name": {
+								"type": "string",
+								"description": " The name of the identification scheme."
+							},
+							"@scheme-agency-id": {
+								"type": "string",
+								"description": " The identification of the agency that maintains the identification scheme."
+							},
+							"@scheme-agency-name": {
+								"type": "string",
+								"description": " The name of the agency that maintains the identification scheme."
+							},
+							"@scheme-version-id": {
+								"type": "string",
+								"description": " The version of the identification scheme."
+							},
+							"@scheme-data-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+							},
+							"@scheme-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"name": {
+					"type": "object",
+					"description": " The name of the instance of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"desc": {
+					"type": "object",
+					"description": " A free text description of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"type": {
+					"type": "object",
+					"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"categories": {
+					"type": "array",
+					"description": " The set of classifications for the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " A classification applied to the business object or component. More than one classification scheme can be applied using the @listName attribute to identify the type of code list being used. The classification scheme can be used to group instances of the object or component.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@list-hierarchy-id": {
+								"type": "string",
+								"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+							},
+							"@list-id": {
+								"type": "string",
+								"description": "The identification of a list of codes."
+							},
+							"@list-agency-id": {
+								"type": "string",
+								"description": "An agency that maintains one or more lists of codes."
+							},
+							"@list-agency-name": {
+								"type": "string",
+								"description": "The name of the agency that maintains the list of codes."
+							},
+							"@list-name": {
+								"type": "string",
+								"description": "The name of a list of codes."
+							},
+							"@list-version-id": {
+								"type": "string",
+								"description": "The version of the list of codes."
+							},
+							"@name": {
+								"type": "string",
+								"description": "The textual equivalent of the code content component."
+							},
+							"@language-id": {
+								"type": "string",
+								"description": "The identifier of the language used in the code name."
+							},
+							"@list-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list is located."
+							},
+							"@list-scheme-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"status": {
+					"type": "object",
+					"description": " The lifecycle state of the business object or component. This field is used to track the specific state an instance of an object or component is in, e.g. the Customer Bill is Active or the Customer Request has been Cancelled.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				}
+			}
+		},
+		"customer-account": {
+			"type": "object",
+			"description": "The Customer Account of the Service Balance entity",
+			"properties": {
+				"_links": {
+					"$ref": "#/definitions/links"
+				},
+				"ids": {
+					"type": "array",
+					"description": " The set of Identifiers for the VBO or component. These should be used to uniquely identifier instances of the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " The identifier of the business object or component. This should be used to identify instances of a business object or component. Where the component is being used to reference another business object then this is the primary key of the target object. Use the attributes @schemeName and @schemeAgencyName to identify type of Identifier.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@scheme-id": {
+								"type": "string",
+								"description": " The identification of the identification scheme."
+							},
+							"@scheme-name": {
+								"type": "string",
+								"description": " The name of the identification scheme."
+							},
+							"@scheme-agency-id": {
+								"type": "string",
+								"description": " The identification of the agency that maintains the identification scheme."
+							},
+							"@scheme-agency-name": {
+								"type": "string",
+								"description": " The name of the agency that maintains the identification scheme."
+							},
+							"@scheme-version-id": {
+								"type": "string",
+								"description": " The version of the identification scheme."
+							},
+							"@scheme-data-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme data is located."
+							},
+							"@scheme-uri": {
+								"type": "string",
+								"description": " The Uniform Resource Identifier that identifies where the identification scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"name": {
+					"type": "object",
+					"description": " The name of the instance of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"desc": {
+					"type": "object",
+					"description": " A free text description of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"type": {
+					"type": "object",
+					"description": " A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"categories": {
+					"type": "array",
+					"description": " The set of classifications for the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": " A classification applied to the business object or component. More than one classification scheme can be applied using the @listName attribute to identify the type of code list being used. The classification scheme can be used to group instances of the object or component.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@list-hierarchy-id": {
+								"type": "string",
+								"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+							},
+							"@list-id": {
+								"type": "string",
+								"description": "The identification of a list of codes."
+							},
+							"@list-agency-id": {
+								"type": "string",
+								"description": "An agency that maintains one or more lists of codes."
+							},
+							"@list-agency-name": {
+								"type": "string",
+								"description": "The name of the agency that maintains the list of codes."
+							},
+							"@list-name": {
+								"type": "string",
+								"description": "The name of a list of codes."
+							},
+							"@list-version-id": {
+								"type": "string",
+								"description": "The version of the list of codes."
+							},
+							"@name": {
+								"type": "string",
+								"description": "The textual equivalent of the code content component."
+							},
+							"@language-id": {
+								"type": "string",
+								"description": "The identifier of the language used in the code name."
+							},
+							"@list-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list is located."
+							},
+							"@list-scheme-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"status": {
+					"type": "object",
+					"description": " The lifecycle state of the business object or component. This field is used to track the specific state an instance of an object or component is in, e.g. the Customer Bill is Active or the Customer Request has been Cancelled.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": " The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": " An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": " The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": " The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": " The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": " The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": " The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"pin": {
+					"type": "object",
+					"description": " The personal identification number for a customer account.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": " The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": " The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				}
+			}
+		},
+		"related-party": {
+			"type": "object",
+			"description": "A reference to the related party of the Resource Inventory.",
+			"properties": {
+				"ids": {
+					"type": "array",
+					"description": "The set of Identifiers for the VBO or component. These should be used to uniquely identifier instances of the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": "The identifier of the business object or component. This should be used to identify instances of a business object or component. Where the component is being used to reference another business object then this is the primary key of the target object. Use the attributes @schemeName and @schemeAgencyName to identify type of Identifier.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@scheme-id": {
+								"type": "string",
+								"description": "The identification of the identification scheme."
+							},
+							"@scheme-name": {
+								"type": "string",
+								"description": "The name of the identification scheme."
+							},
+							"@scheme-agency-id": {
+								"type": "string",
+								"description": "The identification of the agency that maintains the identification scheme."
+							},
+							"@scheme-agency-name": {
+								"type": "string",
+								"description": "The name of the agency that maintains the identification scheme."
+							},
+							"@scheme-version-id": {
+								"type": "string",
+								"description": "The version of the identification scheme."
+							},
+							"@scheme-data-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the identification scheme data is located."
+							},
+							"@scheme-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the identification scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"name": {
+					"type": "object",
+					"description": "The name of the instance of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": "The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": "The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"desc": {
+					"type": "object",
+					"description": "A free text description of a business object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": "The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": "The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"type": {
+					"type": "object",
+					"description": "A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": "The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": "An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": "The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": "The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": "The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": "The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": "The identifier of the language used in the code name."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": "The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"categories": {
+					"type": "array",
+					"description": "The set of classifications for the business object or component.",
+					"minItems": 1,
+					"items": {
+						"type": "object",
+						"description": "A classification applied to the business object or component. More than one classification scheme can be applied using the @listName attribute to identify the type of code list being used. The classification scheme can be used to group instances of the object or component.",
+						"properties": {
+							"$": {
+								"type": "string",
+								"description": "The value of the field."
+							},
+							"@list-hierarchy-id": {
+								"type": "string",
+								"description": "An indication of the hierarchy level of the category when involved in a hierarchical classification, e.g. level 1 -> Category/@listHierarchyID=1, level 2 -> Category/@listHierarchyID=2. In this case the listName should be the same for each level to show their relationship."
+							},
+							"@list-id": {
+								"type": "string",
+								"description": "The identification of a list of codes."
+							},
+							"@list-agency-id": {
+								"type": "string",
+								"description": "An agency that maintains one or more lists of codes."
+							},
+							"@list-agency-name": {
+								"type": "string",
+								"description": "The name of the agency that maintains the list of codes."
+							},
+							"@list-name": {
+								"type": "string",
+								"description": "The name of a list of codes."
+							},
+							"@list-version-id": {
+								"type": "string",
+								"description": "The version of the list of codes."
+							},
+							"@name": {
+								"type": "string",
+								"description": "The textual equivalent of the code content component."
+							},
+							"@language-id": {
+								"type": "string",
+								"description": "The identifier of the language used in the code name."
+							},
+							"@list-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list is located."
+							},
+							"@list-scheme-uri": {
+								"type": "string",
+								"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+							}
+						},
+						"required": [
+							"$"
+						]
+					}
+				},
+				"status": {
+					"type": "object",
+					"description": "The lifecycle state of the business object or component. This field is used to track the specific state an instance of an object or component is in; e.g. the Susbscription is Active or the Customer Request has been Cancelled.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value of the field."
+						},
+						"@list-id": {
+							"type": "string",
+							"description": "The identification of a list of codes."
+						},
+						"@list-agency-id": {
+							"type": "string",
+							"description": "An agency that maintains one or more lists of codes."
+						},
+						"@list-agency-name": {
+							"type": "string",
+							"description": "The name of the agency that maintains the list of codes."
+						},
+						"@list-name": {
+							"type": "string",
+							"description": "The name of a list of codes."
+						},
+						"@list-version-id": {
+							"type": "string",
+							"description": "The version of the list of codes."
+						},
+						"@name": {
+							"type": "string",
+							"description": "The textual equivalent of the code content component."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": "The identifier of the language used in the code name."
+						},
+						"@list-uri": {
+							"type": "string",
+							"description": "The Uniform Resource Identifier that identifies where the code list is located."
+						},
+						"@list-scheme-uri": {
+							"type": "string",
+							"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"role": {
+					"type": "object",
+					"description": "Indicates the role of the party.",
+					"properties": {
+						"$": {
+							"type": "string",
+							"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+						},
+						"@language-id": {
+							"type": "string",
+							"description": "The identifier of the language used in the content component."
+						},
+						"@language-locale-id": {
+							"type": "string",
+							"description": "The identification of the locale of the language."
+						}
+					},
+					"required": [
+						"$"
+					]
+				},
+				"contact-points": {
+					"type": "array",
+					"description": "The set of contact points for the organisation. A contact point being one of a postal address; email address; phone number.",
+					"items": {
+						"type": "object",
+						"description": "Contact Point. The choice being Postal; Telephone; Fax and SMS",
+						"properties": {
+							"id": {
+								"type": "object",
+								"description": "A classification of the business object or component. This identifies the sub-type of the instance of object or component.",
+								"properties": {
+									"$": {
+										"type": "string",
+										"description": "The value of the field."
+									},
+									"@scheme-id": {
+										"type": "string",
+										"description": "The identification of the identification scheme."
+									},
+									"@scheme-name": {
+										"type": "string",
+										"description": "The name of the identification scheme."
+									},
+									"@scheme-agency-id": {
+										"type": "string",
+										"description": "The identification of the agency that maintains the identification scheme."
+									},
+									"@scheme-agency-name": {
+										"type": "string",
+										"description": "The name of the agency that maintains the identification scheme."
+									},
+									"@scheme-version-id": {
+										"type": "string",
+										"description": "The version of the identification scheme."
+									},
+									"@scheme-data-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the identification scheme data is located."
+									},
+									"@scheme-uri": {
+										"type": "string",
+										"description": "The Uniform Resource Identifier that identifies where the identification scheme is located."
+									}
+								},
+								"required": [
+									"$"
+								]
+							},
+							"email": {
+								"type": "object",
+								"description": "Email as contact point",
+								"properties": {
+									"full-address": {
+										"type": "object",
+										"description": "The full email address e.g. peter.jackson@vodafone.com.",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"domain-name": {
+										"type": "object",
+										"description": "The domain e.g. vodafone.com.",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"user-name": {
+										"type": "object",
+										"description": "The username e.g. peter.jackson.",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value to be matched in a query criteria. The repeating structure allows more than one value to be specified, these must be taken as an implict OR function, i.e. This Value-1 OR Value-2 OR Value-3."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"email-verified": {
+										"type": "boolean",
+										"description": "Indicates whether the email address is verified."
+									}
+								}
+							},
+							"telephone": {
+								"type": "object",
+								"description": "Telephone as contact point",
+								"properties": {
+									"phone-type": {
+										"type": "object",
+										"description": "The phone type e.g. Landline; mobile",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value of the field."
+											},
+											"@list-id": {
+												"type": "string",
+												"description": "The identification of a list of codes."
+											},
+											"@list-agency-id": {
+												"type": "string",
+												"description": "An agency that maintains one or more lists of codes."
+											},
+											"@list-agency-name": {
+												"type": "string",
+												"description": "The name of the agency that maintains the list of codes."
+											},
+											"@list-name": {
+												"type": "string",
+												"description": "The name of a list of codes."
+											},
+											"@list-version-id": {
+												"type": "string",
+												"description": "The version of the list of codes."
+											},
+											"@name": {
+												"type": "string",
+												"description": "The textual equivalent of the code content component."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the code name."
+											},
+											"@list-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list is located."
+											},
+											"@list-scheme-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"subscriber-number": {
+										"type": "object",
+										"description": "The subscriber number",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"local-area-code": {
+										"type": "object",
+										"description": "The local area code for this telephone",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"full-number": {
+										"type": "object",
+										"description": "The full number of this telephone",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									}
+								}
+							},
+							"postal": {
+								"type": "object",
+								"description": "Postal as contact point",
+								"properties": {
+									"street": {
+										"type": "object",
+										"description": "The street; expressed as text; of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"town": {
+										"type": "object",
+										"description": "The town name; expressed as text; of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"building-name": {
+										"type": "object",
+										"description": "The building name; expressed as text; of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"building-number": {
+										"type": "object",
+										"description": "The building number; expressed as number; of this address",
+										"properties": {
+											"$": {
+												"type": "number",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"country": {
+										"type": "object",
+										"description": "The country for this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"county": {
+										"type": "object",
+										"description": "Name of the county in which the city falls; where applicable",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"occupant": {
+										"type": "object",
+										"description": "The occupant at this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"post-code": {
+										"type": "object",
+										"description": "A code specifying the post code of the address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"primary-classification": {
+										"type": "object",
+										"description": "The primary classification of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"sub-locality": {
+										"type": "object",
+										"description": "The sub locality of this address e.g district or borough",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"sub-street": {
+										"type": "object",
+										"description": "The sub street of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"sub-unit": {
+										"type": "object",
+										"description": "The sub unit of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"building-letter": {
+										"type": "object",
+										"description": "The building letter of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"town-suffix": {
+										"type": "object",
+										"description": "The town suffic of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"country-code": {
+										"type": "object",
+										"description": "The ISO 3166-2 country code of this address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"type": {
+										"type": "object",
+										"description": "The type of address",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"street-suffix": {
+										"type": "object",
+										"description": "A modifier to a street name often to denote a relative direction",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"street-type": {
+										"type": "object",
+										"description": "The kind of thoroughfare. Example alley; avenue; boulevard; crescent etc",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"level-nr": {
+										"type": "object",
+										"description": "The floor number within a building",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"level-type": {
+										"type": "object",
+										"description": "A description of the level within a building where numbers are not used",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"private-street-name": {
+										"type": "object",
+										"description": "The name of a street with a site. Example Street within a university",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"portal": {
+										"type": "object",
+										"description": "The portal name of the apartment or flat",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"portal-door": {
+										"type": "object",
+										"description": "The portal door number of the apartment or flat",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"characteristics": {
+										"type": "array",
+										"minItems": 1,
+										"items": {
+											"type": "object",
+											"description": "The set of characteristics for the specification.",
+											"properties": {
+												"name": {
+													"type": "string",
+													"description": "The name of the characteristic"
+												},
+												"value": {
+													"type": "object",
+													"description": "The value of the characteristic",
+													"properties": {
+														"$": {
+															"type": "string",
+															"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+														},
+														"@language-id": {
+															"type": "string",
+															"description": "The identifier of the language used in the content component."
+														},
+														"@language-locale-id": {
+															"type": "string",
+															"description": "The identification of the locale of the language."
+														}
+													},
+													"required": [
+														"$"
+													]
+												},
+												"type": {
+													"type": "object",
+													"description": "A classification of the characteristic component. This identifies the sub-type of the instance of object or component.",
+													"properties": {
+														"$": {
+															"type": "string",
+															"description": "The value of the field."
+														},
+														"@list-id": {
+															"type": "string",
+															"description": "The identification of a list of codes."
+														},
+														"@list-agency-id": {
+															"type": "string",
+															"description": "An agency that maintains one or more lists of codes."
+														},
+														"@list-agency-name": {
+															"type": "string",
+															"description": "The name of the agency that maintains the list of codes."
+														},
+														"@list-name": {
+															"type": "string",
+															"description": "The name of a list of codes."
+														},
+														"@list-version-id": {
+															"type": "string",
+															"description": "The version of the list of codes."
+														},
+														"@name": {
+															"type": "string",
+															"description": "The textual equivalent of the code content component."
+														},
+														"@language-id": {
+															"type": "string",
+															"description": "The identifier of the language used in the code name."
+														},
+														"@list-uri": {
+															"type": "string",
+															"description": "The Uniform Resource Identifier that identifies where the code list is located."
+														},
+														"@list-scheme-uri": {
+															"type": "string",
+															"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+														}
+													},
+													"required": [
+														"$"
+													]
+												},
+												"description": {
+													"type": "object",
+													"description": "A free text description of the characteristic.",
+													"properties": {
+														"$": {
+															"type": "string",
+															"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+														},
+														"@language-id": {
+															"type": "string",
+															"description": "The identifier of the language used in the content component."
+														},
+														"@language-locale-id": {
+															"type": "string",
+															"description": "The identification of the locale of the language."
+														}
+													},
+													"required": [
+														"$"
+													]
+												},
+												"creation-time": {
+													"type": "object",
+													"description": "The date and time the business object or component was created. A date and time formatted in compliance with the ISO8601 standard must be used.",
+													"properties": {
+														"$": {
+															"type": "string",
+															"description": "A particular point in the progression of time together with the relevant supplementary information."
+														},
+														"@format": {
+															"type": "string",
+															"description": "The format of the date time content."
+														}
+													},
+													"required": [
+														"$"
+													]
+												},
+												"validity-period": {
+													"type": "object",
+													"description": "A component that states the date and time from which this business object is effective (or valid) and the date and time to which it is effective. Again the ISO8601 standard must be used.",
+													"properties": {
+														"from-date": {
+															"type": "object",
+															"description": "The date from which the business object or component is effective.",
+															"properties": {
+																"date-string": {
+																	"type": "object",
+																	"description": "The date from which the business object or component is effective.",
+																	"properties": {
+																		"@format": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"date": {
+																	"type": "string",
+																	"description": "The name of a list of codes. The listName of the Organisation Status Code"
+																}
+															},
+															"oneOf": [
+																{
+																	"required": [
+																		"date-string"
+																	]
+																},
+																{
+																	"required": [
+																		"date"
+																	]
+																}
+															]
+														},
+														"to-date": {
+															"type": "object",
+															"description": "The date to which the business object or component is effective.",
+															"properties": {
+																"date-string": {
+																	"type": "object",
+																	"description": "The date from which the business object or component is effective.",
+																	"properties": {
+																		"@format": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"date": {
+																	"type": "string",
+																	"description": "The name of a list of codes. The listName of the Organisation Status Code"
+																}
+															},
+															"oneOf": [
+																{
+																	"required": [
+																		"date-string"
+																	]
+																},
+																{
+																	"required": [
+																		"date"
+																	]
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"sms": {
+								"type": "object",
+								"description": "SMS as contact point",
+								"properties": {
+									"type-code": {
+										"type": "object",
+										"description": "The type code of this SMS",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value of the field."
+											},
+											"@list-id": {
+												"type": "string",
+												"description": "The identification of a list of codes."
+											},
+											"@list-agency-id": {
+												"type": "string",
+												"description": "An agency that maintains one or more lists of codes."
+											},
+											"@list-agency-name": {
+												"type": "string",
+												"description": "The name of the agency that maintains the list of codes."
+											},
+											"@list-name": {
+												"type": "string",
+												"description": "The name of a list of codes."
+											},
+											"@list-version-id": {
+												"type": "string",
+												"description": "The version of the list of codes."
+											},
+											"@name": {
+												"type": "string",
+												"description": "The textual equivalent of the code content component."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the code name."
+											},
+											"@list-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list is located."
+											},
+											"@list-scheme-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"subscriber-number": {
+										"type": "object",
+										"description": "The subscriber number e.g. 07765092245",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									}
+								}
+							},
+							"fax": {
+								"type": "object",
+								"description": "SMS as contact point",
+								"properties": {
+									"type-code": {
+										"type": "object",
+										"description": "The type code for the fax",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value of the field."
+											},
+											"@list-id": {
+												"type": "string",
+												"description": "The identification of a list of codes."
+											},
+											"@list-agency-id": {
+												"type": "string",
+												"description": "An agency that maintains one or more lists of codes."
+											},
+											"@list-agency-name": {
+												"type": "string",
+												"description": "The name of the agency that maintains the list of codes."
+											},
+											"@list-name": {
+												"type": "string",
+												"description": "The name of a list of codes."
+											},
+											"@list-version-id": {
+												"type": "string",
+												"description": "The version of the list of codes."
+											},
+											"@name": {
+												"type": "string",
+												"description": "The textual equivalent of the code content component."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the code name."
+											},
+											"@list-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list is located."
+											},
+											"@list-scheme-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"subscriber-number": {
+										"type": "object",
+										"description": "The subscriber number e.g. 07765092245",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "A character string (i.e. a finite set of characters) generally in the form of words of a language."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the content component."
+											},
+											"@language-locale-id": {
+												"type": "string",
+												"description": "The identification of the locale of the language."
+											}
+										},
+										"required": [
+											"$"
+										]
+									},
+									"local-area-code": {
+										"type": "object",
+										"description": "The local area code for the fax",
+										"properties": {
+											"$": {
+												"type": "string",
+												"description": "The value of the field."
+											},
+											"@list-id": {
+												"type": "string",
+												"description": "The identification of a list of codes."
+											},
+											"@list-agency-id": {
+												"type": "string",
+												"description": "An agency that maintains one or more lists of codes."
+											},
+											"@list-agency-name": {
+												"type": "string",
+												"description": "The name of the agency that maintains the list of codes."
+											},
+											"@list-name": {
+												"type": "string",
+												"description": "The name of a list of codes."
+											},
+											"@list-version-id": {
+												"type": "string",
+												"description": "The version of the list of codes."
+											},
+											"@name": {
+												"type": "string",
+												"description": "The textual equivalent of the code content component."
+											},
+											"@language-id": {
+												"type": "string",
+												"description": "The identifier of the language used in the code name."
+											},
+											"@list-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list is located."
+											},
+											"@list-scheme-uri": {
+												"type": "string",
+												"description": "The Uniform Resource Identifier that identifies where the code list scheme is located."
+											}
+										},
+										"required": [
+											"$"
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

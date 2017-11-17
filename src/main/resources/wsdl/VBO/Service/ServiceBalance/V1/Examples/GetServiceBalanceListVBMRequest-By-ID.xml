@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vbm:GetServiceBalanceListVBMRequest 
+	xmlns:vbm="http://group.vodafone.com/schema/vbm/service/service-balance/v1" 
+	xmlns:cmn="http://group.vodafone.com/schema/common/v1">
+	 <cmn:StartIndex>0</cmn:StartIndex>
+	 <cmn:IndexPerPage>10</cmn:IndexPerPage>
+	 <cmn:Identification actionCode="UPDATE">
+            <cmn:IDs>
+               <cmn:ID schemeName="Service Balance ID" schemeAgencyName="Vodafone">12345</cmn:ID>
+            </cmn:IDs>
+         </cmn:Identification>
+</vbm:GetServiceBalanceListVBMRequest>
+  

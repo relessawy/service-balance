@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vbm:GetServiceBalanceListVBMResponse xmlns:cct="urn:un:unece:uncefact:documentation:standard:CoreComponentType:2" xmlns:cmn="http://group.vodafone.com/schema/common/v1" xmlns:extvbo="http://group.vodafone.com/schema/extension/vbo/service/service-balance/v1" xmlns:vbm="http://group.vodafone.com/schema/vbm/service/service-balance/v1" xmlns:vbo="http://group.vodafone.com/schema/vbo/service/service-balance/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://group.vodafone.com/schema/vbm/service/service-balance/v1 ServiceBalanceVBM.xsd ">
+  <vbm:ServiceBalanceVBO actionCode="ADD">
+    <cmn:IDs>
+      <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+    </cmn:IDs>
+    <cmn:Name languageID="EN" languageLocaleID="token">cmn:Name</cmn:Name>
+    <cmn:Desc languageID="EN" languageLocaleID="token">cmn:Desc</cmn:Desc>
+    <cmn:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Type>
+    <cmn:Categories>
+      <cmn:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Category>
+    </cmn:Categories>
+    <cmn:Status languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Status>
+    <cmn:Version languageID="EN" languageLocaleID="token">cmn:Version</cmn:Version>
+    <cmn:Created format="">cmn:Created</cmn:Created>
+    <cmn:CreatedBy schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:CreatedBy>
+    <cmn:LastModified format="">cmn:LastModified</cmn:LastModified>
+    <cmn:LastModifiedBy schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:LastModifiedBy>
+    <cmn:ValidityPeriod>
+      <cmn:FromDate>
+        <cct:DateString format="">cct:DateString</cct:DateString>
+      </cmn:FromDate>
+      <cmn:ToDate>
+        <cct:DateString format="">cct:DateString</cct:DateString>
+      </cmn:ToDate>
+    </cmn:ValidityPeriod>
+    <cmn:LastActivityDate format="">cmn:LastActivityDate</cmn:LastActivityDate>
+    <vbo:ServiceIdentifier schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</vbo:ServiceIdentifier>
+    <vbo:Details>
+      <vbo:Amount currencyCodeListVersionID="token" currencyID="token">0.0</vbo:Amount>
+      <vbo:BalanceAmount>
+        <vbo:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</vbo:Type>
+        <vbo:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</vbo:Category>
+        <vbo:Amount currencyCodeListVersionID="token" currencyID="token">0.0</vbo:Amount>
+      </vbo:BalanceAmount>
+      <vbo:LastPaymentDate format="">vbo:LastPaymentDate</vbo:LastPaymentDate>
+      <vbo:ResetDate format="">vbo:ResetDate</vbo:ResetDate>
+      <vbo:Extension/>
+    </vbo:Details>
+    <vbo:RelatedServiceBalances>
+      <vbo:RelatedServiceBalance actionCode="ADD" relationshipTypeCode="token">
+        <cmn:IDs>
+          <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+        </cmn:IDs>
+        <cmn:Name languageID="EN" languageLocaleID="token">cmn:Name</cmn:Name>
+        <cmn:Desc languageID="EN" languageLocaleID="token">cmn:Desc</cmn:Desc>
+        <cmn:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Type>
+        <cmn:Categories>
+          <cmn:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Category>
+        </cmn:Categories>
+        <cmn:Status languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Status>
+        <vbo:Extension/>
+      </vbo:RelatedServiceBalance>
+    </vbo:RelatedServiceBalances>
+    <vbo:Roles>
+      <vbo:Extension/>
+    </vbo:Roles>
+    <vbo:Parts>
+      <vbo:CustomerFacingService actionCode="ADD">
+        <cmn:IDs>
+          <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+        </cmn:IDs>
+        <cmn:Name languageID="EN" languageLocaleID="token">cmn:Name</cmn:Name>
+        <cmn:Desc languageID="EN" languageLocaleID="token">cmn:Desc</cmn:Desc>
+        <cmn:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Type>
+        <cmn:Categories>
+          <cmn:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Category>
+        </cmn:Categories>
+        <cmn:Status languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Status>
+        <vbo:Extension/>
+      </vbo:CustomerFacingService>
+      <vbo:CustomerAccount actionCode="ADD">
+        <cmn:IDs>
+          <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+        </cmn:IDs>
+        <cmn:Name languageID="EN" languageLocaleID="token">cmn:Name</cmn:Name>
+        <cmn:Desc languageID="EN" languageLocaleID="token">cmn:Desc</cmn:Desc>
+        <cmn:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Type>
+        <cmn:Categories>
+          <cmn:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Category>
+        </cmn:Categories>
+        <cmn:Status languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Status>
+        <vbo:Extension>
+          <extvbo:Pin languageID="EN" languageLocaleID="token">extvbo:Pin</extvbo:Pin>
+        </vbo:Extension>
+      </vbo:CustomerAccount>
+      <vbo:Extension/>
+    </vbo:Parts>
+    <vbo:RelatedParties>
+      <vbo:RelatedParty actionCode="ADD">
+        <cmn:IDs>
+          <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+        </cmn:IDs>
+        <cmn:Name languageID="EN" languageLocaleID="token">cmn:Name</cmn:Name>
+        <cmn:Desc languageID="EN" languageLocaleID="token">cmn:Desc</cmn:Desc>
+        <cmn:Type languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Type>
+        <cmn:Categories>
+          <cmn:Category languageID="EN" listAgencyID="token" listAgencyName="" listHierarchyID="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Category>
+        </cmn:Categories>
+        <cmn:Status languageID="EN" listAgencyID="token" listAgencyName="" listID="token" listName="" listSchemeURI="http://tempuri.org" listURI="http://tempuri.org" listVersionID="token" name="">token</cmn:Status>
+        <cmn:Role languageID="EN" languageLocaleID="token">cmn:Role</cmn:Role>
+        <cmn:ContactPoints>
+          <cmn:ContactPoint actionCode="ADD">
+            <cmn:ID schemeAgencyID="token" schemeAgencyName="" schemeDataURI="http://tempuri.org" schemeID="token" schemeName="" schemeURI="http://tempuri.org" schemeVersionID="token">token</cmn:ID>
+            <cmn:Preferred>
+              <cct:IndicatorString format="">cct:IndicatorString</cct:IndicatorString>
+            </cmn:Preferred>
+            <cmn:Email>
+              <cmn:FullAddress languageID="EN" languageLocaleID="token">cmn:FullAddress</cmn:FullAddress>
+              <cmn:DomainName languageID="EN" languageLocaleID="token">cmn:DomainName</cmn:DomainName>
+              <cmn:UserName languageID="EN" languageLocaleID="token">cmn:UserName</cmn:UserName>
+              <cmn:Verified>
+                <cct:IndicatorString format="">cct:IndicatorString</cct:IndicatorString>
+              </cmn:Verified>
+            </cmn:Email>
+          </cmn:ContactPoint>
+        </cmn:ContactPoints>
+      </vbo:RelatedParty>
+      <vbo:Extension/>
+    </vbo:RelatedParties>
+    <vbo:Extension/>
+  </vbm:ServiceBalanceVBO>
+</vbm:GetServiceBalanceListVBMResponse>

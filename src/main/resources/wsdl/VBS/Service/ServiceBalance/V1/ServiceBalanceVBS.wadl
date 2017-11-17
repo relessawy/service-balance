@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--(c) Vodafone Group Services Limited. All rights reserved. This document comprises proprietary and confidential information and copyright material belonging to Vodafone Group Services Limited. Other than as permitted by law, no part of this document may be reproduced, adapted, or distributed, in any form or by any means, without the prior written consent of Vodafone Group Services Limited. The information in this document is subject to change without notice. All trademarks acknowledged. Vodafone Group Services Limited - Confidential -->
+<!-- ====================================================================== -->
+<!-- =====                 GBS ServiceBalance WADL Module               ===== -->
+<!-- ====================================================================== -->
+<wadl:application xmlns:vbo="http://group.vodafone.com/contract/vbo/service/service-balance/v1" xmlns:tns="http://group.vodafone.com/contract/vbs/service/service-balance/v1" xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:vbm="http://group.vodafone.com/contract/vbm/service/service-balance/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://group.vodafone.com/schema/common/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wadl.dev.java.net/2009/02 ../../../../VBO/Common/V1/wadl.xsd" name="ServiceBalanceVBS">
+    <wadl:doc title="Generated">
+        <tns:description>The Service Balance service is an Entity service providing a capability to retrieve a balance information from the downstream systems. This balance information represent the available amount of a service.</tns:description>
+        <tns:version>1.0</tns:version>
+        <tns:doc>
+            <tns:description>Service Specifications, please reference for a business description, data definition and detailed information on API behaviour and specific response codes.</tns:description>
+            <tns:url>https://workspace.vodafone.com/group/GID/SitePages/Home.aspx</tns:url>
+        </tns:doc>
+    </wadl:doc>
+    <wadl:grammars>
+        <wadl:include href="../../../../VBO/Customer/V1/ServiceBalanceVBO.xsd"/>
+        <wadl:include href="../../../../VBO/Common/V1/Fault.xsd"/>
+        <wadl:include href="../../../../VBO/Common/V1/Meta.xsd"/>
+        <xsd:schema xmlns:tns="http://group.vodafone.com/contract/vbo/service/service-balance/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://group.vodafone.com/contract/vbo/service/service-balance/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xsd:element name="ServiceBalanceVBO" type="tns:ServiceBalanceVBOType"/>
+        </xsd:schema>
+    </wadl:grammars>
+    <wadl:resources base="http://{env}.api-v1.{locale}.vodafone.com/enterprise-resources/">
+        <wadl:resource path="service/service-balances" queryType="application/x-www-form-urlencoded">
+            <wadl:param name="Authorization" style="header" required="false"/>
+            <wadl:method name="GET" id="get-list">
+                <wadl:doc>A method that allows a consumer of the API to get-list a ServiceBalance representation.</wadl:doc>
+                <wadl:request>
+                    <wadl:param name="id" style="query" type="xsd:token" required="false">
+                        <wadl:doc>The identifier of the Service Balance to search for, configured as the $.ids[0].$ value in the business object.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="service-id" style="query" type="xsd:token" required="false">
+                        <wadl:doc>The identifier of the Service. It retrieves all the records of the Service Balance from BES based on the query parameter passed.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="service-id-type" style="query" type="xsd:token" required="false">
+                        <wadl:doc>The type of the Service Identifier. It retrieves all the records of the Service Balance from BES based on the query parameter passed.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="service-balance-type" style="query" type="xsd:token" required="false">
+                        <wadl:doc>The type of the Service Balance. It retrieves all the records of the Service Balance from BES based on the query parameter passed.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="offset" style="query" type="xsd:int" required="false"/>
+                    <wadl:param name="count" style="query" type="xsd:int" required="false"/>
+                    <wadl:param name="sort" style="query" type="xsd:token" required="false"/>
+                    <wadl:param name="Accept" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Accept-Language" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-CountryCode" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-CountryOperator" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-Division" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-System" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-Timestamp" style="header" type="xsd:string" required="false"/>
+                </wadl:request>
+                <wadl:response status="200">
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+xml" element="vbo:ServiceBalanceVBO"/>
+                    <wadl:param name="Content-Type" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Content-Length" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Content-Language" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="Cache-Control" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Total-Count" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Items-Per-Page" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false"/>
+                </wadl:response>
+                <wadl:response status="204">
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false"/>
+                </wadl:response>
+                <wadl:response status="400 405 429 500">
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="service/service-balances/{id}" queryType="application/x-www-form-urlencoded">
+            <wadl:param name="id" style="template" type="xsd:token" required="true"/>
+            <wadl:param name="Authorization" style="header" required="false"/>
+            <wadl:method name="GET" id="get">
+                <wadl:doc>
+                    <description>A method that allows a consumer of the API to get a ServiceBalance representation.</description>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="Accept" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Accept-Language" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-CountryCode" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-CountryOperator" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-Division" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-System" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Source-Timestamp" style="header" type="xsd:string" required="false"/>
+                </wadl:request>
+                <wadl:response status="200">
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+xml" element="vbo:ServiceBalanceVBO"/>
+                    <wadl:param name="Content-Type" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Content-Length" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="Content-Language" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false"/>
+                    <wadl:param name="Cache-Control" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false"/>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false"/>
+                </wadl:response>
+                <wadl:response status="400 404 405 410 422 429 500">
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="service/service-balances/{id}/customer-facing-services/{customer-facing-service-id}" queryType="application/x-www-form-urlencoded">
+            <wadl:param name="id" style="template" type="xsd:token" required="true">
+                <wadl:doc>A method that allows a consumer of the API to get the Customer Facing Service component of the VBO.</wadl:doc>
+            </wadl:param>
+            <wadl:param name="customer-facing-service-id" style="template" type="xsd:token" required="true">
+                <wadl:doc>The ID for the Customer Facing Service component of the Service Balance</wadl:doc>
+            </wadl:param>
+            <wadl:param name="Authorization" style="header" required="false">
+                <wadl:doc>A user agent that wishes to authenticate itself with a server -- usually, but not necessarily, after receiving a 401 response--does so by including an Authorization request-header field with the</wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET" id="get-customer-facing-service">
+                <wadl:doc>A method that allows a consumer of the API to get the Customer Facing Service component of the VBO.</wadl:doc>
+                <wadl:request>
+                    <wadl:param name="Accept" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept request-header field can be used to specify certain media types which are acceptable for the response</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Accept-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept-Language request-header field is similar to Accept, but restricts the set of natural languages that are preferred as a response to the request</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-CountryCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The ISO Country Code of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Operator" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Organisation of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Division" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Division of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-System" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Logical System Name (COBRA) of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 Date and Time from the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+                <wadl:response status="200">
+                    <wadl:param name="Content-Type" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Type entity-header field indicates the media type of the entity-body sent to the recipient or, in the case of the HEAD method, the media type that would have been sent had the request been a GET.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Length" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Language entity-header field describes the natural language(s) of the intended audience for the enclosed entity</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of allowed requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of remaining requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of seconds left in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 date and Time of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The URI Address of the system/API generating the warning/error</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Code of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Name of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Severity of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Category of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone ReasonCode of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Message" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Message of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:representation href="#customer-paty.json#individual"/>
+                    <wadl:representation href="#customer-paty.xml#individual"/>
+                </wadl:response>
+                <wadl:response status="400 404 405 410 422 429 500">
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="service/service-balances/{id}/customer-facing-services/{customer-account-id}" queryType="application/x-www-form-urlencoded">
+            <wadl:param name="id" style="template" type="xsd:token" required="true">
+                <wadl:doc>A method that allows a consumer of the API to get the Customer Account component of the VBO.</wadl:doc>
+            </wadl:param>
+            <wadl:param name="customer-account-id" style="template" type="xsd:token" required="true">
+                <wadl:doc>The ID for the Customer Account component of the Service Balance</wadl:doc>
+            </wadl:param>
+            <wadl:param name="Authorization" style="header" required="false">
+                <wadl:doc>A user agent that wishes to authenticate itself with a server -- usually, but not necessarily, after receiving a 401 response--does so by including an Authorization request-header field with the</wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET" id="get-customer-account">
+                <wadl:doc>A method that allows a consumer of the API to get the organisation component of the VBO.</wadl:doc>
+                <wadl:request>
+                    <wadl:param name="Accept" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept request-header field can be used to specify certain media types which are acceptable for the response</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Accept-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept-Language request-header field is similar to Accept, but restricts the set of natural languages that are preferred as a response to the request</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-CountryCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The ISO Country Code of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Operator" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Organisation of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Division" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Division of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-System" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Logical System Name (COBRA) of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 Date and Time from the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+                <wadl:response status="200">
+                    <wadl:param name="Content-Type" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Type entity-header field indicates the media type of the entity-body sent to the recipient or, in the case of the HEAD method, the media type that would have been sent had the request been a GET.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Length" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Language entity-header field describes the natural language(s) of the intended audience for the enclosed entity</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of allowed requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of remaining requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of seconds left in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 date and Time of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The URI Address of the system/API generating the warning/error</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Code of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Name of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Severity of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Category of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone ReasonCode of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Message" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Message of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:representation href="#customer-paty.json#organisation"/>
+                    <wadl:representation href="#customer-paty.xml#organisation"/>
+                </wadl:response>
+                <wadl:response status="400 404 405 410 422 429 500">
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/service/service-balances/{id}/related-parties/{related-party-id}" queryType="application/x-www-form-urlencoded">
+            <wadl:param name="id" style="template" type="xsd:token" required="true">
+                <wadl:doc>The identifier of the resource to search for, configured as the $.ids[0].$ value in the business object.</wadl:doc>
+            </wadl:param>
+            <wadl:param name="related-party-id" style="template" type="xsd:token" required="true">
+                <wadl:doc>The primary ID for the party related with the service balance component</wadl:doc>
+            </wadl:param>
+            <wadl:param name="Authorization" style="header" required="false">
+                <wadl:doc>A user agent that wishes to authenticate itself with a server -- usually, but not necessarily, after receiving a 401 response--does so by including an Authorization request-header field with the</wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET" id="get-related-party">
+                <wadl:doc>A method that allows a consumer of the API to get the Related Party of Resource Inventory component.</wadl:doc>
+                <wadl:request>
+                    <wadl:param name="Accept" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept request-header field can be used to specify certain media types which are acceptable for the response</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Accept-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Accept-Language request-header field is similar to Accept, but restricts the set of natural languages that are preferred as a response to the request</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-CountryCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The ISO Country Code of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Operator" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Organisation of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Division" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Division of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-System" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Logical System Name (COBRA) of the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Source-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 Date and Time from the client/consuming system.</wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+                <wadl:response status="200">
+                    <wadl:param name="Content-Type" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Type entity-header field indicates the media type of the entity-body sent to the recipient or, in the case of the HEAD method, the media type that would have been sent had the request been a GET.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Length" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="Content-Language" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Content-Language entity-header field describes the natural language(s) of the intended audience for the enclosed entity</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Limit" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of allowed requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Remaining" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of remaining requests in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-Rate-Limit-Reset" style="header" type="xsd:int" required="false">
+                        <wadl:doc>The number of seconds left in the current period</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Timestamp" style="header" type="xsd:dateTime" required="false">
+                        <wadl:doc>The ISO8601 date and Time of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Originator-Address" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The URI Address of the system/API generating the warning/error</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ErrorCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Code of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Name" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Name of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Severity" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Severity of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Category" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Category of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-ReasonCode" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone ReasonCode of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="X-ResultStatus-Message" style="header" type="xsd:string" required="false">
+                        <wadl:doc>The Vodafone Message of the warning/error.</wadl:doc>
+                    </wadl:param>
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+json#related-party"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.service-balance.v1+xml#related-party" element="vbo:ServiceBalanceVBO"/>
+                </wadl:response>
+                <wadl:response status="400 404 405 410 422 429 500">
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+json"/>
+                    <wadl:representation mediaType="application/vnd.vodafone.fault.v1+xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+    </wadl:resources>
+    <wadl:representation id="fault-object.json" mediaType="application/vnd.vodafone.fault.v1+json"/>
+    <wadl:representation id="fault-object.xml" mediaType="application/vnd.vodafone.fault.v1+xml"/>
+    <wadl:representation id="patch-object.json" mediaType="application/vnd.vodafone.patch.v1+json"/>
+    <wadl:representation id="service-balance.json" mediaType="application/vnd.vodafone.service-balance.v1+json"/>
+    <wadl:representation id="service-balance.xml" mediaType="application/vnd.vodafone.service-balance.v1+xml" element="vbo:ServiceBalanceVBO"/>
+</wadl:application>

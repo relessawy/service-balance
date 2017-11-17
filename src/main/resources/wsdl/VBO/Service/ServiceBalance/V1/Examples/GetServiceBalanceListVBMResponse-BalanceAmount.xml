@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vbm:GetServiceBalanceListVBMResponse xmlns:vbm="http://group.vodafone.com/schema/vbm/service/service-balance/v1" xmlns:cct="urn:un:unece:uncefact:documentation:standard:CoreComponentType:2" xmlns:cmn="http://group.vodafone.com/schema/common/v1" xmlns:vbo="http://group.vodafone.com/schema/vbo/service/service-balance/v1" xmlns:extvbo="http://group.vodafone.com/schema/extension/vbo/service/service-balance/v1">
+   <vbm:ServiceBalanceVBO actionCode="ADD">
+      <cmn:IDs>
+         <cmn:ID schemeAgencyName="Vodafone" schemeName=" Service Balance List ID">123</cmn:ID>
+      </cmn:IDs>
+      <cmn:Name>Service Balance List One</cmn:Name>
+      <cmn:Desc>The  Service Balance List for the party</cmn:Desc>
+      <cmn:Type listAgencyName="Vodafone" listName="string">Consumer  Service Balance List</cmn:Type>
+      <cmn:Categories>
+         <cmn:Category listAgencyName="Vodafone" listName="string">token</cmn:Category>
+      </cmn:Categories>
+      <cmn:Status listAgencyName="Vodafone" listName="string">Active</cmn:Status>
+      <cmn:Version>987</cmn:Version>
+      <cmn:Created format="ISO8601">2015-04-01T00:00:00</cmn:Created>
+      <cmn:CreatedBy schemeAgencyName="Vodafone" schemeName="UserID">j.smith</cmn:CreatedBy>
+      <cmn:LastModified format="ISO8601">2015-04-01T00:00:00</cmn:LastModified>
+      <cmn:LastModifiedBy schemeAgencyName="Vodafone" schemeName="UserID">s.rogers</cmn:LastModifiedBy>
+      <cmn:ValidityPeriod>
+         <cmn:FromDate>
+            <cct:Date>2015-04-01</cct:Date>
+         </cmn:FromDate>
+         <cmn:ToDate>
+            <cct:Date>2015-04-01</cct:Date>
+         </cmn:ToDate>
+      </cmn:ValidityPeriod>
+      <cmn:LastActivityDate format="ISO8601">2015-04-01T00:00:00</cmn:LastActivityDate>
+      <vbo:ServiceIdentifier schemeName="MSISDN" schemeAgencyName="Vodafone">07712345678</vbo:ServiceIdentifier>
+      <vbo:Details>
+         <vbo:Allowance>
+            <vbo:Type listAgencyName="Vodafone" listName="string">token</vbo:Type>
+            <vbo:Category listAgencyName="Vodafone" listName="string">token</vbo:Category>
+            <vbo:AvailableAllowance unitCode="unit">125</vbo:AvailableAllowance>
+            <vbo:UsedAllowance unitCode="unit">10</vbo:UsedAllowance>
+         </vbo:Allowance>
+         <vbo:Allowance>
+            <vbo:Type listAgencyName="Vodafone" listName="string">token</vbo:Type>
+            <vbo:Category listAgencyName="Vodafone" listName="string">token</vbo:Category>
+            <vbo:AvailableAllowance unitCode="unit">125</vbo:AvailableAllowance>
+            <vbo:UsedAllowance unitCode="unit">10</vbo:UsedAllowance>
+         </vbo:Allowance>
+         <vbo:BalanceAmount>
+            <vbo:Type listAgencyName="Vodafone" listName="string">token</vbo:Type>
+            <vbo:Category listAgencyName="Vodafone" listName="string">token</vbo:Category>
+            <vbo:Amount currencyID="EUR">123.00</vbo:Amount>
+         </vbo:BalanceAmount>
+         <vbo:BalanceAmount>
+            <vbo:Type listAgencyName="Vodafone" listName="string">token</vbo:Type>
+            <vbo:Category listAgencyName="Vodafone" listName="string">token</vbo:Category>
+            <vbo:Amount currencyID="EUR">123.00</vbo:Amount>
+         </vbo:BalanceAmount>
+         <vbo:LastPaymentDate format="ISO8601">2015-04-01T00:00:00</vbo:LastPaymentDate>
+         <vbo:ResetDate format="ISO8601">2015-04-01T00:00:00</vbo:ResetDate>
+         <vbo:Extension/>
+      </vbo:Details>
+      <vbo:RelatedServiceBalances>
+         <vbo:RelatedServiceBalance actionCode="ADD" relationshipTypeCode="token">
+            <cmn:IDs>
+               <cmn:ID schemeAgencyName="Vodafone" schemeName=" Service Balance List ID">123</cmn:ID>
+            </cmn:IDs>
+            <cmn:Name>Service Balance List Two</cmn:Name>
+            <cmn:Desc>The  Service Balance List for the party</cmn:Desc>
+            <cmn:Type listAgencyName="Vodafone" listName="string">Consumer  Service Balance List</cmn:Type>
+            <cmn:Categories>
+               <cmn:Category listAgencyName="Vodafone" listName="string">token</cmn:Category>
+            </cmn:Categories>
+            <cmn:Status listAgencyName="Vodafone" listName="string">Active</cmn:Status>
+            <vbo:Extension/>
+         </vbo:RelatedServiceBalance>
+      </vbo:RelatedServiceBalances>
+      <vbo:Roles>
+         <vbo:Extension/>
+      </vbo:Roles>
+      <vbo:Parts>
+         <vbo:CustomerFacingService actionCode="ADD">
+            <cmn:IDs>
+               <cmn:ID schemeAgencyName="Vodafone" schemeName="string">123</cmn:ID>
+            </cmn:IDs>
+            <cmn:Name>string</cmn:Name>
+            <cmn:Desc>string</cmn:Desc>
+            <cmn:Type listAgencyName="Vodafone" listName="string">token</cmn:Type>
+            <cmn:Categories>
+               <cmn:Category listAgencyName="Vodafone" listName="string">token</cmn:Category>
+            </cmn:Categories>
+            <cmn:Status listAgencyName="Vodafone" listName="string">Active</cmn:Status>
+            <vbo:Extension/>
+         </vbo:CustomerFacingService>
+         <vbo:CustomerAccount actionCode="ADD">
+            <cmn:IDs>
+               <cmn:ID schemeAgencyName="Vodafone" schemeName="Customer Account ID">123</cmn:ID>
+            </cmn:IDs>
+            <cmn:Name>The Customer's Account</cmn:Name>
+            <cmn:Desc>string</cmn:Desc>
+            <cmn:Type listAgencyName="Vodafone" listName="string">Consumer Customer Account</cmn:Type>
+            <cmn:Categories>
+               <cmn:Category listAgencyName="Vodafone" listName="string">token</cmn:Category>
+            </cmn:Categories>
+            <cmn:Status listAgencyName="Vodafone" listName="string">Active</cmn:Status>
+            <vbo:Extension>
+               <extvbo:Pin>12345</extvbo:Pin>
+            </vbo:Extension>
+         </vbo:CustomerAccount>
+         <vbo:Extension/>
+      </vbo:Parts>
+      <vbo:RelatedParties>
+         <vbo:RelatedParty>
+            <cmn:IDs>
+               <cmn:ID schemeAgencyName="Vodafone" schemeName="Party Role ID">121</cmn:ID>
+            </cmn:IDs>
+            <cmn:Name>John Smith</cmn:Name>
+            <cmn:Desc>The owner of the article</cmn:Desc>
+            <cmn:Type>Individual</cmn:Type>
+            <cmn:Categories>
+               <cmn:Category listAgencyName="Vodafone" listName="string"/>
+            </cmn:Categories>
+            <cmn:Status>Active</cmn:Status>
+            <cmn:Role>Customer</cmn:Role>
+            <cmn:ContactPoints>
+               <cmn:ContactPoint actionCode="ADD">
+                  <cmn:ID schemeAgencyName="Vodafone" schemeName="Party Role ID">123</cmn:ID>
+                  <cmn:Email>
+                     <cmn:FullAddress>j.smith@vodafone.com</cmn:FullAddress>
+                     <cmn:DomainName>vodafone.com</cmn:DomainName>
+                     <cmn:UserName>j.smith</cmn:UserName>
+                     <cmn:Verified>
+                        <cct:Indicator>true</cct:Indicator>
+                     </cmn:Verified>
+                  </cmn:Email>
+               </cmn:ContactPoint>
+            </cmn:ContactPoints>
+         </vbo:RelatedParty>
+      </vbo:RelatedParties>
+      <vbo:Extension/>
+   </vbm:ServiceBalanceVBO>
+</vbm:GetServiceBalanceListVBMResponse>

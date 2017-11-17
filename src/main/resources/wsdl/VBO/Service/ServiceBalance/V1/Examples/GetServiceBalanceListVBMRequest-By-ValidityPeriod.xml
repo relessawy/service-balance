@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vbm:GetServiceBalanceListVBMRequest 
+	xmlns:vbm="http://group.vodafone.com/schema/vbm/service/service-balance/v1" 
+	xmlns:cmn="http://group.vodafone.com/schema/common/v1">
+	 <cmn:StartIndex>0</cmn:StartIndex>
+	 <cmn:IndexPerPage>10</cmn:IndexPerPage>
+	 <cmn:Criteria>
+		<cmn:QueryExpression>
+			<cmn:QueryExpression LogicalOperatorCode="AND">
+			  <cmn:ValueExpression QueryOperatorCode="EQUALS" Path="/ServiceBalanceVBO/ValidityPeriod/FromDate/Date">
+				 <cmn:Value>2016-04-01</cmn:Value>
+			  </cmn:ValueExpression>
+			  <cmn:ValueExpression QueryOperatorCode="EQUALS" Path="/ServiceBalanceVBO/ValidityPeriod/ToDate/Date">
+				 <cmn:Value>2017-04-01</cmn:Value>
+			  </cmn:ValueExpression>
+		    </cmn:QueryExpression>
+		</cmn:QueryExpression>
+	 </cmn:Criteria>
+</vbm:GetServiceBalanceListVBMRequest>
+  

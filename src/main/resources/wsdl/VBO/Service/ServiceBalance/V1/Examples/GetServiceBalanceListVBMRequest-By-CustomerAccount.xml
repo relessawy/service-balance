@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vbm:GetServiceBalanceListVBMRequest 
+	xmlns:vbm="http://group.vodafone.com/schema/vbm/service/service-balance/v1" 
+	xmlns:cmn="http://group.vodafone.com/schema/common/v1">  
+	<cmn:Criteria>
+        <cmn:QueryExpression>
+            <cmn:ValueExpression Path="/ServiceBalanceVBO/Parts/CustomerAccount/IDs/ID" QueryOperatorCode="EQUALS">
+                <cmn:Value>1350</cmn:Value>
+            </cmn:ValueExpression>
+        </cmn:QueryExpression>
+    </cmn:Criteria>
+</vbm:GetServiceBalanceListVBMRequest>

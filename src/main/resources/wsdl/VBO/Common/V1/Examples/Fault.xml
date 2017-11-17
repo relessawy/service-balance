@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vfo:Fault
+	xmlns:sbl="http://some-siebel-ns"
+	xmlns:vfo="http://group.vodafone.com/contract/vfo/fault/v1"
+	xmlns:cmn="http://group.vodafone.com/schema/common/v1"
+	xmlns:ws-bf="http://docs.oasis-open.org/wsrf/bf-2"
+	xmlns:wsa="http://www.w3.org/2005/08/addressing"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:acct="http://group.vodafone.com/contract/vbs/customer/customer-account/v1/"
+	xsi:schemaLocation="http://group.vodafone.com/contract/vfo/fault/v1 ../Fault.xsd">
+	<ws-bf:Timestamp>2015-04-01T00:00:00Z</ws-bf:Timestamp>
+	<ws-bf:Originator>
+		<wsa:Address>acct:create</wsa:Address>
+	</ws-bf:Originator>
+	<ws-bf:ErrorCode >491</ws-bf:ErrorCode>
+	<ws-bf:Description xml:lang="en">The requested business object does not exist.</ws-bf:Description>
+	<ws-bf:FaultCause>
+	  <sbl:SiebelError>
+	  	<sbl:Desc>The specific Siebel exception thrown by the service request</sbl:Desc>
+	  </sbl:SiebelError>
+	</ws-bf:FaultCause>
+	<vfo:Name>Invalid Business Object</vfo:Name>
+	<vfo:Severity>Critical</vfo:Severity>
+	<vfo:Category>Business</vfo:Category>
+	<vfo:Message>Invalid Business Object</vfo:Message>
+	<vfo:Specification>
+		<vfo:Characteristic>
+			<cmn:Name>CustomerName</cmn:Name>
+			<cmn:Value>BMW UK</cmn:Value>
+		</vfo:Characteristic>
+	</vfo:Specification>
+	<vfo:Failures>
+		<vfo:Failure>
+			<vfo:Code>101</vfo:Code>
+			<vfo:Text>Invalid Date Time</vfo:Text>
+			<vfo:DataRef>
+				<vfo:PathName>/CardPaymentVBO/Created</vfo:PathName>
+				<vfo:PathValueText>01/01/2016</vfo:PathValueText>
+			</vfo:DataRef>
+		</vfo:Failure>
+	</vfo:Failures>
+</vfo:Fault>
