@@ -19,8 +19,11 @@ parameters:
 - name: GIT_REPO
   displayName: Git Repository URL
   required: true
-  value: https://gitlab.com/poc-vodafone-egypt/service-balance
+  value: http://172.17.0.1:8681/r/service-balance.git
   description: The URL of the repository with your application source code.
+- name: MAVEN_MIRROR_URL
+  displayName: Maven Mirror
+  value: http://172.17.0.1:8081/nexus/content/groups/public/
 - name: GIT_REF
   displayName: Git Reference
   value: master
@@ -96,8 +99,6 @@ objects:
       generic:
         secret: "${BUILD_SECRET}"
     - type: ConfigChange
-    - type: ImageChange
-      imageChange: {}
     source:
       type: Git
       git:
@@ -111,7 +112,6 @@ objects:
           namespace: "${IMAGE_STREAM_NAMESPACE}"
           name: fis-java-openshift:${BUILDER_VERSION}
         forcePull: true
-        incremental: true
         env:
         - name: BUILD_LOGLEVEL
           value: '5'
@@ -123,6 +123,8 @@ objects:
           value: "${MAVEN_ARGS_APPEND}"
         - name: MAVEN_OPTS
           value: ${MAVEN_OPTS}
+        - name: MAVEN_MIRROR_URL
+          value: ${MAVEN_MIRROR_URL}
     output:
       to:
         kind: ImageStreamTag

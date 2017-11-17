@@ -23,12 +23,31 @@
 
 #How to deploy on openshift
 
-Connect to openshift and make sure image stream is on openshift namespace
-if not import the image stream
+Connect to openshift with an admin account and make sure image stream is on openshift namespace
+if not import the fis image stream
 
-	oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/GA/fis-image-streams.json
+	oc login -u system:admin
+	oc create -n openshift -f https://raw.githubusercontent.com/jboss-fuse/application-templates/GA/fis-image-streams.json
 
-Import the template for this project
+Edit the file service-balance.yml and change the following variables according to your environment. In example
+
+	GIT_REPO : point to the git repo of this project
+	IMAGE_STREAM_NAMESPACE : the namespace where the fis-image-stream was imported
+	MAVEN_MIRROR_URL : url to your maven repo (ie nexus)
+
+Login in to developer account import the template for this project
+	
+	oc login -u developer
+	oc create -f service-balance.yml
+
+Create and launch the app from the template
+	
+	oc new-app service-balance
+	
+To delete the app from openshift
+	
+	oc delete all -l app=service-balance
+	
 
 	
 	
