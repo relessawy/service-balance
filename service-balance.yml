@@ -178,6 +178,9 @@ objects:
         containers:
         - name: "${APP_NAME}"
           image: library/${APP_NAME}:latest
+          volumeMounts:
+          - name: config-volume
+            mountPath: /deployments/config
           readinessProbe:
             httpGet:
               path: "/health"
@@ -203,6 +206,10 @@ objects:
               fieldRef:
                 fieldPath: metadata.namespace
           resources: {}
+        volumes:
+        - name: config-volume
+          configMap:
+            name: service-balance-config
   status: {}
   
 - apiVersion: v1
