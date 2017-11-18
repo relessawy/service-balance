@@ -1,122 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd  http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
-	<cxf:cxfEndpoint address="/soap"
-		endpointName="svc:ServiceBalanceInterfacePort" id="soapsvc"
-		serviceName="svc:ServiceBalanceInterfaceService"
-		wsdlURL="wsdl/VBS/Service/ServiceBalance/V1/ServiceBalanceVBS.wsdl"
-		xmlns:svc="http://group.vodafone.com/contract/vbs/service/service-balance/v1">
-		<cxf:properties>
-			<entry key="dataFormat" value="PAYLOAD" />
-		</cxf:properties>
-	</cxf:cxfEndpoint>
-	<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
-		<restConfiguration apiContextPath="/api-doc"
-			bindingMode="off" component="netty4-http" contextPath="/rest-api"
-			enableCORS="true" hostNameResolver="allLocalIp" port="7123">
-			<dataFormatProperty key="prettyPrint" value="true" />
-		</restConfiguration>
-
-
-		<rest>
-			<get
-				outType="com.vodafone.group.schema.vbm.service.service_balance.v1.GetServiceBalanceListVBMResponseType"
-				uri="/enterprise-resources/auth/service/service-balances">
-				<description>service-balances</description>
-				<param name="service-id-type" type="query" />
-				<!-- example: 201001473098 -->
-				<param name="service-id" type="query" />
-				<!-- example: msisdn -->
-				<to uri="direct:serviceBalance" />
-			</get>
-			<get uri="/backendurl">
-				<route>
-					<setBody>
-						<constant>{{chargingSystemBackendUrl}}</constant>
-					</setBody>
-				</route>
-			</get>
-			
-			<get uri="/backendwrapper">
-				<to uri="{{chargingSystemBackendUrl}}"></to>
-			</get>
-		</rest>
-
-
-		<route id="mockChargingSystem">
-			<from id="mockChargingSystemStarter" uri="netty4-http:http://0.0.0.0:4123/PESProfile" />
-			<log id="_log1"
-				message="mockChargingSystem query paremeters received : ${header.CamelHttpQuery}" />
-			<log id="_log2" message="${headers}" />
-			<setBody id="_setBody1">
-				<simple>resource:classpath:data/getPrepaidProfileMockData.xml</simple>
-			</setBody>
-		</route>
-
-		<route id="_route1">
-			<from id="_from1" uri="direct:ping" />
-			<setBody id="_setBody2">
-				<constant>OK</constant>
-			</setBody>
-		</route>
-
-
-		<route id="callChargingSystem">
-			<from id="_from3" uri="direct:callChargingSystem" />
-			<removeHeaders id="_removeHeaders2" pattern="Camel*" />
-			<setHeader headerName="CamelHttpQuery" id="_setHeader3">
-				<simple>msisdn=${header.service-id}&amp;clientID=TIBCO&amp;serviceID=GetPrepaidProfile&amp;TrackingID=${header.breadcrumbId}</simple>
-			</setHeader>
-			<log id="_log3" message="before send : ${header.CamelHttpQuery}" />
-			<to id="_to2" uri="{{chargingSystemBackendUrl}}" />
-			<convertBodyTo id="_convertBodyTo1" type="org.w3c.dom.Document" />
-			<removeHeaders id="_removeHeaders3" pattern="*" />
-		</route>
-
-
-		<route id="serviceBalance">
-			<!-- we will be reusing this header later in the flow so lets store it 
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd  http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+    <cxf:cxfEndpoint address="/soap"
+        endpointName="svc:ServiceBalanceInterfacePort" id="soapsvc"
+        serviceName="svc:ServiceBalanceInterfaceService"
+        wsdlURL="wsdl/VBS/Service/ServiceBalance/V1/ServiceBalanceVBS.wsdl" xmlns:svc="http://group.vodafone.com/contract/vbs/service/service-balance/v1">
+        <cxf:properties>
+            <entry key="dataFormat" value="PAYLOAD"/>
+        </cxf:properties>
+    </cxf:cxfEndpoint>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <restConfiguration apiContextPath="/api-doc" bindingMode="off"
+            component="netty4-http" contextPath="/rest-api"
+            enableCORS="true" hostNameResolver="allLocalIp" port="7123">
+            <dataFormatProperty key="prettyPrint" value="true"/>
+        </restConfiguration>
+        <rest>
+            <get
+                outType="com.vodafone.group.schema.vbm.service.service_balance.v1.GetServiceBalanceListVBMResponseType" uri="/enterprise-resources/auth/service/service-balances">
+                <description>service-balances</description>
+                <param name="service-id-type" type="query"/>
+                <!-- example: 201001473098 -->
+                <param name="service-id" type="query"/>
+                <!-- example: msisdn -->
+                <to uri="direct:serviceBalance"/>
+            </get>
+            <get uri="/backendurl">
+                <route>
+                    <setBody>
+                        <constant>{{chargingSystemBackendUrl}}</constant>
+                    </setBody>
+                </route>
+            </get>
+            <get uri="/backendwrapper">
+                <to uri="{{chargingSystemBackendUrl}}"/>
+            </get>
+        </rest>
+        <route id="mockChargingSystem">
+            <from id="mockChargingSystemStarter" uri="netty4-http:http://0.0.0.0:4123/PESProfile"/>
+            <log id="_log1" message="mockChargingSystem query paremeters received : ${header.CamelHttpQuery}"/>
+            <log id="_log2" message="${headers}"/>
+            <setBody id="_setBody1">
+                <simple>resource:classpath:data/getPrepaidProfileMockData.xml</simple>
+            </setBody>
+        </route>
+        <route id="_route1">
+            <from id="_from1" uri="direct:ping"/>
+            <setBody id="_setBody2">
+                <constant>OK</constant>
+            </setBody>
+        </route>
+        <route id="callChargingSystem">
+            <from id="_from3" uri="direct:callChargingSystem"/>
+            <removeHeaders id="_removeHeaders2" pattern="Camel*"/>
+            <setHeader headerName="CamelHttpQuery" id="_setHeader3">
+                <simple>msisdn=${header.service-id}&amp;clientID=TIBCO&amp;serviceID=GetPrepaidProfile&amp;TrackingID=${header.breadcrumbId}</simple>
+            </setHeader>
+            <log id="_log3" message="before send : ${header.CamelHttpQuery}"/>
+            <to id="_to2" uri="{{chargingSystemBackendUrl}}"/>
+            <convertBodyTo id="_convertBodyTo1" type="org.w3c.dom.Document"/>
+            <removeHeaders id="_removeHeaders3" pattern="*"/>
+        </route>
+        <route id="serviceBalance">
+            <!-- we will be reusing this header later in the flow so lets store it 
 				as an exchange property -->
-			<from id="serviceBalanceStarter" uri="direct:serviceBalance" />
-			<setProperty id="acceptFormatJsonXml" propertyName="accept">
-				<simple>${header.accept}</simple>
-			</setProperty>
-			<log id="logFormatRequested" message="received a request in ${property.accept}" />
-			<to id="callChargingSystemFromServiceBalance" uri="direct:callChargingSystem" />
-			<setHeader headerName="Parse-XML" id="setHeadersForXSLT">
-				<simple>${body}</simple>
-			</setHeader>
-			<to id="_to3" uri="xslt:xsl/backend2front.xsl?saxon=true" />
-			<unmarshal id="xmlToObject">
-				<jaxb contextPath="com.vodafone.group.schema.vbm.service.service_balance.v1" />
-			</unmarshal>
-			<choice id="_choice1">
-				<when id="_when1">
-					<simple id="xml">${property.accept} == "application/xml"</simple>
-					<marshal id="_marshal1">
-						<jaxb contextPath="com.vodafone.group.schema.vbm.service.service_balance.v1" />
-					</marshal>
-				</when>
-				<otherwise id="_otherwise1">
-					<marshal id="_marshal2">
-						<json library="Jackson" />
-					</marshal>
-				</otherwise>
-			</choice>
-			<removeHeaders id="_removeHeaders1" pattern="*" />
-		</route>
-
-		<!-- SOAP Webservice declaration -->
-		<route id="soap-service-balance">
-			<from id="_from2" uri="cxf:bean:soapsvc" />
-			<log id="_log4" message="soap service called" />
-			<setHeader headerName="accept" id="_setHeader2">
-				<constant>application/xml</constant>
-			</setHeader>
-			<to id="_to1" uri="direct:serviceBalance" />
-		</route>
-
-
-	</camelContext>
+            <from id="serviceBalanceStarter" uri="direct:serviceBalance"/>
+            <setProperty id="acceptFormatJsonXml" propertyName="accept">
+                <simple>${header.accept}</simple>
+            </setProperty>
+            <log id="logFormatRequested" message="received a request in ${property.accept}"/>
+            <to id="callChargingSystemFromServiceBalance" uri="direct:callChargingSystem"/>
+            <setHeader headerName="Parse-XML" id="setHeadersForXSLT">
+                <simple>${body}</simple>
+            </setHeader>
+            <to id="_to3" uri="xslt:xsl/backend2front.xsl?saxon=true"/>
+            <unmarshal id="xmlToObject">
+                <jaxb contextPath="com.vodafone.group.schema.vbm.service.service_balance.v1"/>
+            </unmarshal>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <simple id="xml">${property.accept} == "application/xml"</simple>
+                    <marshal id="_marshal1">
+                        <jaxb contextPath="com.vodafone.group.schema.vbm.service.service_balance.v1"/>
+                    </marshal>
+                </when>
+                <otherwise id="_otherwise1">
+                    <marshal id="_marshal2">
+                        <json library="Jackson"/>
+                    </marshal>
+                </otherwise>
+            </choice>
+            <removeHeaders id="_removeHeaders1" pattern="*"/>
+        </route>
+        <!-- SOAP Webservice declaration -->
+        <route id="soap-service-balance">
+            <from id="_from2" uri="cxf:bean:soapsvc"/>
+            <log id="_log4" message="soap service called"/>
+            <setHeader headerName="accept" id="_setHeader2">
+                <constant>application/xml</constant>
+            </setHeader>
+            <to id="_to1" uri="direct:serviceBalance"/>
+        </route>
+    </camelContext>
 </beans>

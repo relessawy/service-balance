@@ -19,8 +19,10 @@
 ##example of call to the rest service
 
 		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/xml"
+		curl -X GET "http://localhost:7123/rest-api/backendurl" -H "accept: application/json"
 
 if you want to change the backend endpoint edit the property file (property chargingSystemBackendUrl keep the netty4-http in front) 
+		
 		src/main/resources/application.properties
 
 
