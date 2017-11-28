@@ -96,16 +96,6 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-servlet</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-script-starter</artifactId>
-      <version>2.18.1.redhat-000015</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-netty4-http-starter</artifactId>
-      <version>2.18.1.redhat-000015</version>
-    </dependency>
   </dependencies>
   <repositories>
     <repository>
