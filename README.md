@@ -62,7 +62,8 @@ Create and launch the app from the template
 To delete the app from openshift
 	
 		oc delete all -l app=service-balance
-
+		oc delete configmap service-balance-config
+		
 Call rest api example 
 
 		http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/api-doc
