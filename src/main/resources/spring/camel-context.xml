@@ -87,7 +87,7 @@
                 </when>
                 <otherwise id="_otherwise1">
                     <marshal id="_marshal2">
-                        <json library="Jackson"/>
+                        <json library="Jackson" prettyPrint="true"/>
                     </marshal>
                 </otherwise>
             </choice>

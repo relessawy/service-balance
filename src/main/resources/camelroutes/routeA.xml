@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes id="generic-routes" xmlns="http://camel.apache.org/schema/spring">
+    <route id="sharedTimer">
+        <from id="sharedTimerStarter" uri="timer:test:period=1000"/>
+        <log id="sharedTimerLog" message="common route"/>
+    </route>
+</routes>
