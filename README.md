@@ -1,5 +1,7 @@
 #How to run locally and test
 
+Make sure that EMS server is running and is accessible.
+
 ##launch the following command
 		mvn spring-boot:run
 
@@ -19,11 +21,16 @@
 ##example of call to the rest service
 
 		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/xml"
+		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/json"
+		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: SOME_WRONG_FORMAT"
+		
 		curl -X GET "http://localhost:7123/rest-api/backendurl" -H "accept: application/json"
 
 if you want to change the backend endpoint edit the property file (property chargingSystemBackendUrl keep the netty4-http in front) 
 		
 		src/main/resources/application.properties
+
+Not that you can also change the EMS configuration here.
 
 
 #How to deploy on openshift
@@ -63,7 +70,10 @@ Call rest api example
 		curl -X GET "http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/xml"
 
 		curl -X GET "http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: application/json"
-	
+		
+		curl -X GET "http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: SOME_WRONG_FORMAT"
+		
+		
 		curl -X GET "http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/backendurl" -H "accept: application/json"
 
 		curl -X GET "http://service-balance-rest-myproject.127.0.0.1.nip.io/rest-api/backendwrapper?test=toto" -H "accept: application/json"
