@@ -126,6 +126,10 @@
 			<id>redhat-ga-repository</id>
 			<url>https://maven.repository.redhat.com/ga</url>
 		</repository>
+		  <repository>
+			<id>my-local-repo</id>
+			<url>file://${basedir}/lib</url>
+		  </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -158,6 +162,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring-boot.version}</version>
+				<configuration>
+				    <includeSystemScope>true</includeSystemScope>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
