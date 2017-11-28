@@ -110,7 +110,7 @@
 			<artifactId>ems</artifactId>
 			<version>8.2</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/ems/tibjms-8.2.1.jar</systemPath>
+			<systemPath>${project.basedir}/lib/ems/tibjms.jar</systemPath>
 		</dependency>
 
 		<dependency>

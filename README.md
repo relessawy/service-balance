@@ -30,7 +30,7 @@ if you want to change the backend endpoint edit the property file (property char
 		
 		src/main/resources/application.properties
 
-Not that you can also change the EMS configuration here.
+Note that you can also change the EMS configuration here.
 
 
 #How to deploy on openshift
