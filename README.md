@@ -25,7 +25,8 @@ Make sure that EMS server is running and is accessible.
 		curl -X GET "http://localhost:7123/rest-api/enterprise-resources/auth/service/service-balances?service-id-type=sss&service-id=qqq" -H "accept: SOME_WRONG_FORMAT"
 		
 		curl -X GET "http://localhost:7123/rest-api/backendurl" -H "accept: application/json"
-
+		curl -X GET "http://localhost:7123/rest-api/backendwrapper?test=toto" -H "accept: application/xml"
+		
 if you want to change the backend endpoint edit the property file (property chargingSystemBackendUrl keep the netty4-http in front) 
 		
 		src/main/resources/application.properties

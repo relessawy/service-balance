@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes id="generic-routes" xmlns="http://camel.apache.org/schema/spring">
-    
-    
-
-    
     <route id="logCollector">
         <from id="fromEMSLOG" uri="ems:queue:VE.TEMPLATE.LOG"/>
         <setHeader headerName="extractedMessage" id="setExractMsg">
@@ -12,6 +8,4 @@
         <log id="logExtr" message="EXTRACTED MESSAGE : ${header.extractedMessage}"/>
         <log id="logMsgBody" message="${body}"/>
     </route>
-    
-    
 </routes>
