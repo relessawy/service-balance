@@ -1,0 +1,457 @@
+{
+	"variables": [],
+	"info": {
+		"name": "VFE",
+		"_postman_id": "5ce40718-8fa3-977c-2075-49145ffd7197",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8123/sendmsg/siebel",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/siebel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "msisdn",
+						"value": "XXXX",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "call the procstock"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/MI/USSD/GetMIBundles?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8123/MI/USSD/GetMIBundles?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8123",
+					"path": [
+						"MI",
+						"USSD",
+						"GetMIBundles"
+					],
+					"query": [
+						{
+							"key": "ClientID",
+							"value": "USSD",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "msisdn",
+							"value": "ZZZZZ",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Operation",
+							"value": "getAllDetails",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Username",
+							"value": "TEBCO",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Password",
+							"value": "SY",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "FilterBy",
+							"value": "BasicInfo",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/sendmsg/mip",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/mip",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<request>\n\t\t\t<ns0:Header xmlns:ns0=\"http://xmlns.vfe.com.eg/EAI/celfocus/requestEAI\">\n\t\t\t\t<ns1:timeout xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">13000</ns1:timeout>\n\t\t\t\t<ns1:tries xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">1</ns1:tries>\n\t\t\t\t<ns1:creationTime xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">2017-11-01T10:17:09.158+02:00\n\t\t\t\t</ns1:creationTime>\n\t\t\t\t<ns1:timestamp xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">2017-11-01T10:17:09.158+02:00\n\t\t\t\t</ns1:timestamp>\n\t\t\t\t<ns1:trackingID xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">76a7cc260ae65cc079c6cda89a06ce91\n\t\t\t\t</ns1:trackingID>\n\t\t\t\t<ns1:entity xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">MSISDN</ns1:entity>\n\t\t\t\t<ns1:Keys xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\n\t\t\t\t\t<ns1:owner>1005729508</ns1:owner>\n\t\t\t\t</ns1:Keys>\n\t\t\t\t<ns1:History xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\n\t\t\t\t\t<ns1:owner>CHANNEL_INTF_220-CHANNEL_INTF_MI_192_1</ns1:owner>\n\t\t\t\t\t<ns1:service>getmibundles_mi</ns1:service>\n\t\t\t\t\t<ns1:step>2</ns1:step>\n\t\t\t\t</ns1:History>\n\t\t\t\t<ns1:Credentials xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\n\t\t\t\t\t<ns1:applicationID>USSD</ns1:applicationID>\n\t\t\t\t\t<ns1:login>TEBCO</ns1:login>\n\t\t\t\t\t<ns1:password>FL</ns1:password>\n\t\t\t\t</ns1:Credentials>\n\t\t\t\t<ns1:Query xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\n\t\t\t\t\t<ns1:operation>getAllDetails</ns1:operation>\n\t\t\t\t</ns1:Query>\n\t\t\t</ns0:Header>\n\t\t\t<ns0:COM xmlns:ns0=\"http://xmlns.vfe.com.eg/EAI/celfocus/requestEAI\">\n\t\t\t\t<ns1:Customer xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus/COM\">\n\t\t\t\t\t<ns1:Account>\n\t\t\t\t\t\t<ns1:Subscription>\n\t\t\t\t\t\t\t<ns1:SubscriptionID />\n\t\t\t\t\t\t\t<ns1:RatePlan />\n\t\t\t\t\t\t\t<ns1:MSISDN>\n\t\t\t\t\t\t\t\t<ns1:MSISDNNumber>1005729508</ns1:MSISDNNumber>\n\t\t\t\t\t\t\t</ns1:MSISDN>\n\t\t\t\t\t\t\t<ns1:PrepaidDataSim>\n\t\t\t\t\t\t\t\t<ns1:ClientId>USSD</ns1:ClientId>\n\t\t\t\t\t\t\t</ns1:PrepaidDataSim>\n\t\t\t\t\t\t\t<ns1:MIBundle>\n\t\t\t\t\t\t\t\t<ns1:ID />\n\t\t\t\t\t\t\t\t<ns1:Type>DataOnly</ns1:Type>\n\t\t\t\t\t\t\t</ns1:MIBundle>\n\t\t\t\t\t\t</ns1:Subscription>\n\t\t\t\t\t</ns1:Account>\n\t\t\t\t</ns1:Customer>\n\t\t\t\t<ns1:Parameters xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus/COM\">\n\t\t\t\t\t<ns1:Parameter>\n\t\t\t\t\t\t<ns1:Key>requestSummary</ns1:Key>\n\t\t\t\t\t\t<ns1:Value />\n\t\t\t\t\t</ns1:Parameter>\n\t\t\t\t\t<ns1:Parameter>\n\t\t\t\t\t\t<ns1:Key>FilterBy</ns1:Key>\n\t\t\t\t\t\t<ns1:Value>BasicInfo</ns1:Value>\n\t\t\t\t\t</ns1:Parameter>\n\t\t\t\t</ns1:Parameters>\n\t\t\t</ns0:COM>\n\t\t</request>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/sendmsg/billing",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/billing",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "﻿<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ns0:RequestEAI xmlns:ns0=\"http://xmlns.vfe.com.eg/EAI/celfocus/requestEAI\">\r\n    <ns0:Header>\r\n        <ns1:timeout xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">9000</ns1:timeout>\r\n        <ns1:tries xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">1</ns1:tries>\r\n        <ns1:creationTime xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">2017-11-01T17:00:38.455+02:00</ns1:creationTime>\r\n        <ns1:timestamp xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">2017-11-01T17:00:38.502+02:00</ns1:timestamp>\r\n        <ns1:trackingID xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">781933b70ae65ccd0a785526ea4ebe86</ns1:trackingID>\r\n        <ns1:entity xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">MSISDN</ns1:entity>\r\n        <ns1:Keys xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\r\n            <ns1:owner>1005729508</ns1:owner>\r\n            <ns1:eai>ServiceDispatcher-JMS</ns1:eai>\r\n        </ns1:Keys>\r\n        <ns1:History xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\r\n            <ns1:owner>CHANNEL_INTF_220-CHANNEL_INTF_MI_205_1::MIP_220_1-1-MIP_229_2</ns1:owner>\r\n            <ns1:service>getmibundles_mi::getActiveMIBundles</ns1:service>\r\n            <ns1:step>3</ns1:step>\r\n        </ns1:History>\r\n        <ns1:Credentials xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\r\n            <ns1:applicationID>USSD</ns1:applicationID>\r\n            <ns1:login>TEBCO</ns1:login>\r\n            <ns1:password>FL</ns1:password>\r\n        </ns1:Credentials>\r\n        <ns1:Query xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus\">\r\n            <ns1:operation>getAllDetails</ns1:operation>\r\n        </ns1:Query>\r\n    </ns0:Header>\r\n    <ns0:COM>\r\n        <ns1:Customer xmlns:ns1=\"http://xmlns.vfe.com.eg/EAI/celfocus/COM\">\r\n            <ns1:Account>\r\n                <ns1:Subscription>\r\n                    <ns1:SubscriptionID>116731103</ns1:SubscriptionID>\r\n                </ns1:Subscription>\r\n            </ns1:Account>\r\n        </ns1:Customer>\r\n    </ns0:COM>\r\n</ns0:RequestEAI>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/soap-api/billingbackend",
+			"request": {
+				"url": "http://localhost:8001/soap-api/billingbackend",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <SOAP-ENV:Body>\r\n        <ns0:cmsRequest xmlns:ns0=\"http://cmsadapter.asset.com/interfaces/webservice/types/\">\r\n            <username xmlns=\"\">TEBCO</username>\r\n            <password xmlns=\"\">SY</password>\r\n            <wfname xmlns=\"\">ReadContractService</wfname>\r\n            <params xmlns=\"\">\r\n                <name xmlns=\"\">CO_ID</name>\r\n                <type xmlns=\"\">Long</type>\r\n                <simpleValue xmlns=\"\">114</simpleValue>\r\n            </params>\r\n        </ns0:cmsRequest>\r\n    </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/sendmsg/putcache",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/putcache",
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "testdsqdsq",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "12345677sqdsq\ndsqdsqdsqds"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/sendmsg/getcache",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/getcache",
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "testdsqdsq",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8123/sendmsg/reloadcache",
+			"request": {
+				"url": "http://localhost:8123/sendmsg/reloadcache",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://OPENSHIFT/MI/USSD/GetMIBundles?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+			"request": {
+				"url": {
+					"raw": "http://channel-interface-rest-myproject.127.0.0.1.nip.io/MI/USSD/GetMIBundles?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+					"protocol": "http",
+					"host": [
+						"channel-interface-rest-myproject",
+						"127",
+						"0",
+						"0",
+						"1",
+						"nip",
+						"io"
+					],
+					"path": [
+						"MI",
+						"USSD",
+						"GetMIBundles"
+					],
+					"query": [
+						{
+							"key": "ClientID",
+							"value": "USSD",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "msisdn",
+							"value": "ZZZZZ",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Operation",
+							"value": "getAllDetails",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Username",
+							"value": "TEBCO",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Password",
+							"value": "SY",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "FilterBy",
+							"value": "BasicInfo",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8002/rest-api/ping-gateway/100",
+			"request": {
+				"url": "http://localhost:8002/rest-api/ping-gateway/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8002/rest-api/service-balance",
+			"request": {
+				"url": "http://localhost:8002/rest-api/service-balance",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8002/rest-api/get-active-products?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8002/rest-api/get-active-products?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"rest-api",
+						"get-active-products"
+					],
+					"query": [
+						{
+							"key": "ClientID",
+							"value": "USSD",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "msisdn",
+							"value": "ZZZZZ",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Operation",
+							"value": "getAllDetails",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Username",
+							"value": "TEBCO",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Password",
+							"value": "SY",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "FilterBy",
+							"value": "BasicInfo",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/ping-gateway/100",
+			"request": {
+				"url": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/ping-gateway/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/get-active-products?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+			"request": {
+				"url": {
+					"raw": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/get-active-products?ClientID=USSD&msisdn=ZZZZZ&Operation=getAllDetails&Username=TEBCO&Password=SY&FilterBy=BasicInfo",
+					"protocol": "http",
+					"host": [
+						"hystrix-gateway-http-myproject",
+						"127",
+						"0",
+						"0",
+						"1",
+						"nip",
+						"io"
+					],
+					"path": [
+						"rest-api",
+						"get-active-products"
+					],
+					"query": [
+						{
+							"key": "ClientID",
+							"value": "USSD",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "msisdn",
+							"value": "ZZZZZ",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Operation",
+							"value": "getAllDetails",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Username",
+							"value": "TEBCO",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "Password",
+							"value": "SY",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "FilterBy",
+							"value": "BasicInfo",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/service-balance",
+			"request": {
+				"url": "http://hystrix-gateway-http-myproject.127.0.0.1.nip.io/rest-api/service-balance",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
