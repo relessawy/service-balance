@@ -1,0 +1,9 @@
+rules:
+  - pattern: 'org.apache.camel<context=(.*), type=routes, name=\"(.*)\"><>(.+):'
+    name: $1_$2_$3
+    help: $3
+    type: GAUGE
+    labels:
+      route: $2
+      context: $1
+

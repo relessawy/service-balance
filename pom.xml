@@ -126,10 +126,10 @@
 			<id>redhat-ga-repository</id>
 			<url>https://maven.repository.redhat.com/ga</url>
 		</repository>
-		  <repository>
+		<repository>
 			<id>my-local-repo</id>
 			<url>file://${basedir}/lib</url>
-		  </repository>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -163,7 +163,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring-boot.version}</version>
 				<configuration>
-				    <includeSystemScope>true</includeSystemScope>
+					<includeSystemScope>true</includeSystemScope>
 				</configuration>
 				<executions>
 					<execution>
@@ -196,6 +196,58 @@
 					</execution>
 				</executions>
 			</plugin>
+
+
+			<!-- Prometheus JMX Exporter java agent dependency -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<useBaseVersion>true</useBaseVersion>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.prometheus.jmx</groupId>
+									<artifactId>jmx_prometheus_javaagent</artifactId>
+									<version>0.10</version>
+									<outputDirectory>${project.build.directory}/docker/${project.artifactId}/${project.version}/build/maven/agent</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Configuration for Prometheus JMX Exporter -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/docker/${project.artifactId}/${project.version}/build/maven/agent</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/prometheus</directory>
+									<includes>
+										<include>config.yml</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
