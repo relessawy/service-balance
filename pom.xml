@@ -214,35 +214,9 @@
 									<groupId>io.prometheus.jmx</groupId>
 									<artifactId>jmx_prometheus_javaagent</artifactId>
 									<version>0.10</version>
-									<outputDirectory>${project.build.directory}/docker/${project.artifactId}/${project.version}/build/maven/agent</outputDirectory>
+									<outputDirectory>${project.build.directory}</outputDirectory>
 								</artifactItem>
 							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Configuration for Prometheus JMX Exporter -->
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/docker/${project.artifactId}/${project.version}/build/maven/agent</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/resources/prometheus</directory>
-									<includes>
-										<include>config.yml</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
 						</configuration>
 					</execution>
 				</executions>

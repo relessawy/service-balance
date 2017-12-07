@@ -53,6 +53,7 @@ Change the configmaps/application.properties if needed to set the backend url
 	
 		oc login -u developer
 		oc create configmap --from-file=configmaps/application.properties service-balance-config
+		oc create configmap --from-file=configmaps/prometheus.yml prometheus-config
 		oc create -f service-balance.yml
 
 

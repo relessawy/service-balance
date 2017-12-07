@@ -181,6 +181,8 @@ objects:
           volumeMounts:
           - name: config-volume
             mountPath: /deployments/config
+            name: prometheus-config-volume
+            mountPath: /deployments/prometheus
           readinessProbe:
             httpGet:
               path: "/health"
@@ -206,12 +208,15 @@ objects:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: JAVA_OPTIONS 
-            value: -javaagent:agent/jmx_prometheus_javaagent-0.10.jar=9779:agent/config.yml
+            value: -javaagent:jmx_prometheus_javaagent-0.10.jar=9779:prometheus/prometheus.yml
           resources: {}
         volumes:
         - name: config-volume
           configMap:
             name: service-balance-config
+          name: prometheus-volume
+          configMap:
+            name: prometheus-config
   status: {}
   
 - apiVersion: v1
