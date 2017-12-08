@@ -198,7 +198,7 @@
 			</plugin>
 
 		<!-- Prometheus JMX Exporter java agent dependency -->
-<!-- 	
+ 	
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -221,7 +221,7 @@
 					</execution>
 				</executions>
 			</plugin>
- -->
+
 		</plugins>
 	</build>
 </project>
