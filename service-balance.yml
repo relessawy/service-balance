@@ -210,7 +210,7 @@ objects:
           - name: JAVA_APP_JAR
             value: ${APP_NAME}.jar
           - name: JAVA_OPTIONS 
-            value: "-javaagent:agent/jmx_prometheus_javaagent-0.10.jar=9779:prometheus/prometheus.yml"
+            value: "-javaagent:jmx_prometheus_javaagent-0.10.jar=9779:prometheus/prometheus.yml"
           resources: {}
         volumes:
         - name: config-volume
