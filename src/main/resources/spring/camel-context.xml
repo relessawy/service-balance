@@ -20,7 +20,7 @@
             </bean>
         </property>
     </bean>
-    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+    <camelContext id="service-balance" xmlns="http://camel.apache.org/schema/spring">
         <onException>
             <exception>java.lang.Exception</exception>
             <handled>
