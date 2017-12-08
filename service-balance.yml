@@ -202,6 +202,8 @@ objects:
             name: rest-svc
           - containerPort: 4123
             name: mock-svc
+          - containerPort: 9779
+            name: prometheus
           env:
           - name: KUBERNETES_NAMESPACE
             valueFrom:
