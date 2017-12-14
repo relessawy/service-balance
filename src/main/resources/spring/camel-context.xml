@@ -38,7 +38,7 @@
 				<simple>ERROR : ${exception.message}</simple>
 			</setBody>
 		</onException>
-		<restConfiguration apiContextPath="/api-doc"
+		<restConfiguration apiContextPath="/api-doc" apiContextRouteId="getApiDoc"
 			bindingMode="off" component="netty4-http" contextPath="/rest-api"
 			enableCORS="true" hostNameResolver="allLocalIp" port="7123">
 			<dataFormatProperty key="prettyPrint" value="true" />
