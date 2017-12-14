@@ -8,7 +8,11 @@ Make sure that EMS server is running and is accessible.
 ##an alternative is to run the springboot jar file
 
 		mvn package
-		java -jar target/service-balance-1.0-SNAPSHOT.jar
+		java -jar target/service-balance.jar
+
+##run with JMX exporter for prometheus
+
+		java -javaagent:target/jmx_prometheus_javaagent-0.10.jar=9779:configmaps/prometheus.yml -jar target/service-balance.jar
 
 ##get the soap api wsdl
 
